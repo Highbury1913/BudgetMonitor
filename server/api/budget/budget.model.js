@@ -6,7 +6,13 @@ var mongoose = require('mongoose'),
 var BudgetSchema = new Schema({
   name: String,
   info: String,
-  ownerid: Scheme.Types.ObjectId,
+  owner: {
+    type: mongoose.Scheme.Types.ObjectId,
+    ref: 'User'
+    },
+  users: [{
+    userid: mongoose.Scheme.Types.ObjectId
+  }}
   interval: String,
   intervaldata: [{startdate:Date, budget: Number}],
 });
