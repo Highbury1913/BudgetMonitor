@@ -6,7 +6,7 @@ var controller = require('./booking.controller');
 var router = express.Router();
 
 router.get('/budget/:budgetid', controller.index);
-router.get('/budget/:budgetid/:startdate/:enddate', controller.timedindex);
+//router.get('/budget/:budgetid/:startdate/:enddate', controller.timedindex);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);
