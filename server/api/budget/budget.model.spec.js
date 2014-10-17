@@ -5,30 +5,18 @@ var app = require('../../app');
 var User = require('../user/user.model');
 var Budget = require('./budget.model');
 
-var user = new User({
-  provider: 'local',
-  name: 'Fake User',
-  email: 'test@test.com',
-  password: 'password'
-});
+var user;
 
 describe('Budget Model', function () {
-  before(function (done) {
-    // Clear users before testing
-    User.remove().exec().then(function () {
-      user.save(function () {
-        done();
-      });
-    });
-  });
-
-  after(function (done) {
-    User.remove().exec().then(function () {
+  beforeEach(function (done) {
+    // get a user
+    User.find({}, '', function (err, users) {
+      user = users[0];
       done();
     });
-  });
+  })
 
-  before(function (done) {
+  beforeEach(function (done) {
     // Clear budgets before testing
     Budget.remove().exec().then(function () {
       done();
@@ -48,9 +36,9 @@ describe('Budget Model', function () {
     });
   });
 
-  it('should be equipped with a valid test user', function (done) {
+  it('should be equipped with valid test users', function (done) {
     User.find({}, function (err, users) {
-      users.should.have.length(1);
+      users.should.have.length(2);
       done();
     });
   });
@@ -136,6 +124,34 @@ describe('Budget Model', function () {
     });
   });
 
+  describe('Current budget virtual', function () {
+    it('should deliver the latest budget', function (done) {
+      var budget = new Budget({
+        name: 'FakeBudget',
+        info: 'A fake budget for testing',
+        _owner: user._id,
+        access: [{
+          _userid: user._id
+        }],
+        interval: 'weekly',
+        intervaldata: [{
+          startdate: new Date("2014-01-01"),
+          budget: 123.45
+        }, {
+          startdate: new Date("2014-01-02"),
+          budget: 543.21
+        }],
+      });
+
+      budget.save(function (err) {
+        Budget.find({}, function (err, budgets) {
+          budgets[0].latestBudget.startdate.should.eql(new Date("2014-01-02"));
+          budgets[0].latestBudget.budget.should.eql(543.21);
+          done();
+        });
+      });
+    });
+  });
 
   // it('should fail when saving a duplicate user', function(done) {
   //   user.save(function() {

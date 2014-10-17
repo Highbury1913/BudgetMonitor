@@ -19,6 +19,23 @@ var BudgetSchema = new Schema({
 });
 
 /**
+ * Virtuals
+ */
+
+// Latest budget information
+BudgetSchema
+  .virtual('latestBudget')
+  .get(function() {
+    var lastInterval = this.intervaldata[this.intervaldata.length -1];
+    return {
+      'startdate': lastInterval.startdate,
+      'budget': lastInterval.budget,
+      'interval': this.interval
+    };
+  });
+
+
+/**
  * Validations
  */
 

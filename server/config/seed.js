@@ -7,6 +7,9 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Budget = require('../api/budget/budget.model');
+
+console.log('seeding');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -30,6 +33,8 @@ Thing.find({}).remove(function() {
   });
 });
 
+var user1, user2;
+
 User.find({}).remove(function() {
   User.create({
     provider: 'local',
@@ -44,6 +49,53 @@ User.find({}).remove(function() {
     password: 'admin'
   }, function() {
       console.log('finished populating users');
+      User.find({}, '', function(error, users) {
+        user1 = users[0];
+        user2 = users[1];
+      });
+
+      Budget.find({}).remove(function() {
+
+        Budget.create(
+          {
+            name: 'FakeBudget',
+            info: 'A fake budget for testing',
+            _owner: user1._id,
+            access: [{
+              _userid: user1._id
+            }],
+            interval: 'weekly',
+            intervaldata: [{
+              startdate: new Date("2014-01-01"),
+              budget: 123.45
+            }, {
+              startdate: new Date("2014-01-07"),
+              budget: 543.21
+            }],
+          },
+          {
+            name: 'Another FakeBudget',
+            info: 'Another fake budget for testing',
+            _owner: user2._id,
+            access: [{
+              _userid: user2._id
+            }, {
+              _userid: user1._id
+            }],
+            interval: 'monthly',
+            intervaldata: [{
+              startdate: new Date("2014-01-01"),
+              budget: 100
+            }, {
+              startdate: new Date("2014-02-01"),
+              budget: 200
+            }],
+          }
+        );
+
+      });
+
     }
   );
 });
+
