@@ -9,9 +9,9 @@ header#banner.hero-unit(ng-hide="isLoggedIn()")
     h2.lead Bitte logge Dich ein.
 
 .container(ng-show="isLoggedIn()")
-  budgetlist(bookings="bookings")
+  budgetlist(budgets="budgets")
 
-.container(ng-show="isLoggedIn()")
+.container(ng-show="isLoggedIn() && false")
   h1 Neue Buchung eingeben
   form.form(name='form', ng-submit='addBooking()', novalidate='')
     .form-group.col-sm-2

@@ -7,13 +7,13 @@
 
 module.exports = {
   DOMAIN:           'http://localhost:9000',
-  SESSION_SECRET:   'budget-secret',
+  SESSION_SECRET:   'marshfireBudgetMonitorSessionSecret',
 
   FACEBOOK_ID:      'app-id',
   FACEBOOK_SECRET:  'secret',
 
-  GOOGLE_ID:        'app-id',
-  GOOGLE_SECRET:    'secret',
+  GOOGLE_ID:        '89123597720-28thei0e9vj2mim85kqb514bnbiph6ee.apps.googleusercontent.com',
+  GOOGLE_SECRET:    'sOOSInm-Hozk3hAxlw5RB6W5',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''

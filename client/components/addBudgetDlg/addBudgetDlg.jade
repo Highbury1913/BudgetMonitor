@@ -1,0 +1,30 @@
+.modal-header
+  h3 Ein neues Budget erzeugen
+.modal-body
+  form.form(name='form', ng-submit='register(form)', novalidate='')
+    .form-group(ng-class='{ "has-success": form.name.$valid && submitted,\
+    "has-error": form.name.$invalid && submitted }')
+      label Name
+      input.form-control(type='text', name='name', ng-model='budget.name', required='')
+      p.help-block(ng-show='form.name.$error.required && submitted')
+        | Ein Name ist erforderlich.
+
+    .form-group(ng-class='{ "has-success": form.detail.$valid && submitted,\
+    "has-error": form.detail.$invalid && submitted }')
+      label Beschreibung
+      input.form-control(type='text', name='detail', ng-model='budget.detail', required='')
+      p.help-block(ng-show='form.detail.$error.required && submitted')
+        | Eine Beschreibung ist erforderlich.
+
+    .form-group(ng-class='{ "has-success": form.interval.$valid && submitted,\
+    "has-error": form.interval.$invalid && submitted }')
+      label Intervall
+      input.form-control(type='text', name='interval', ng-model='budget.interval', required='')
+      p.help-block(ng-show='form.interval.$error.required && submitted')
+        | Eine Intervallangabe ist erforderlich.
+
+.modal-footer
+  button.btn.btn-primary(ng-click="ok()")
+    | OK
+  button.btn.btn-warning(ng-click="cancel()")
+    | Abbrechen

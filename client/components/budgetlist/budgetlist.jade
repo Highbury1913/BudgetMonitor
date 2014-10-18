@@ -1,26 +1,37 @@
 .budgetlist
-  h1.page-header Buchungen:
-  table.col-sm-12.table-striped.table-hover.table
-    thead
-      tr
-        th Datum
-        th Buchung
-        th Nutzer
-        th Kategorie
-        th Notwendigkeit
-        th Betrag
-        th.icons
-    tbody
-      tr(ng-repeat="booking in bookings | orderBy:predicate:reverse")
-        td.rs-time {{booking.bookingtime|date:shortdate}}
-        td.rs-text {{booking.name}}
-        td.rs-text {{booking.addedby}}
-        td.rs-text {{booking.category}}
-        td.rs-text {{booking.necessity}}
-        td.rs-value {{booking.value|currency}}
-        td.icons
-          .show-on-hover
-            a.remove(ng-click="deleteBooking(booking)")
-              span.glyphicon.glyphicon-remove
-            a.edit(ng-click="editBooking(booking)")
-              span.glyphicon.glyphicon-edit
+  div.navbar.navbar-default
+    .container-fluid
+      div.navbar-header
+        .navbar-brand Budget Übersicht
+      div#budget-navbar-main
+       form.navbar-form.navbar-right
+          button.btn.btn-primary
+            span.glyphicon.glyphicon-plus
+            strong Neues Budget
+
+  #no-budgets(ng-hide="budgets")
+    alert.alert-info
+      | Keine Budgets vorhanden. Leg doch ein neues an!
+  #budget-overview(ng-show="budgets")
+    table.col-sm-12.table-striped.table-hover.table
+      thead
+        tr
+          th Name
+          th Detail
+          th Interval
+          th Start date
+          th Budget
+          th.icons
+      tbody
+        tr(ng-repeat="budget in budgets | orderBy:predicate:reverse")
+          td.rs-text {{budget.name}}
+          td.rs-text {{budget.detail}}
+          td.rs-time {{budget.latestBudget.startdate|date:shortdate}}
+          td.rs-text {{budget.latestBudget.interval}}
+          td.rs-text {{booking.latestBudget.budget|currency}}
+          td.icons
+            .show-on-hover
+              a.remove(ng-click="deleteBooking(booking)")
+                span.glyphicon.glyphicon-remove
+              a.edit(ng-click="editBooking(booking)")
+                span.glyphicon.glyphicon-edit

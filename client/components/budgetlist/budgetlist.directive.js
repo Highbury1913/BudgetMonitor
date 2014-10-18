@@ -5,13 +5,13 @@ angular.module('budgetApp')
     return {
       templateUrl: 'components/budgetlist/budgetlist.html',
       scope: {
-        bookings: '=',
+        budgets: '=',
       },
       restrict: 'E',
       link: function (scope, element, attrs) {
         scope.predicate = '-value';
-        scope.deleteBooking = function(booking) {
-          $http.delete('/api/budgets/' + booking._id);
+        scope.deleteBudget = function(budget) {
+          $http.delete('/api/budgets/' + budget._id);
         }
       }
     };
