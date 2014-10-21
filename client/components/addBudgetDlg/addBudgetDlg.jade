@@ -1,30 +1,49 @@
 .modal-header
   h3 Ein neues Budget erzeugen
 .modal-body
-  form.form(name='form', ng-submit='register(form)', novalidate='')
+  form.form(name="form", ng-submit="register(form)", novalidate="")
     .form-group(ng-class='{ "has-success": form.name.$valid && submitted,\
     "has-error": form.name.$invalid && submitted }')
       label Name
-      input.form-control(type='text', name='name', ng-model='budget.name', required='')
+      input.form-control(type='text', name='name', ng-model='data.name', required='')
       p.help-block(ng-show='form.name.$error.required && submitted')
         | Ein Name ist erforderlich.
 
     .form-group(ng-class='{ "has-success": form.detail.$valid && submitted,\
     "has-error": form.detail.$invalid && submitted }')
       label Beschreibung
-      input.form-control(type='text', name='detail', ng-model='budget.detail', required='')
+      input.form-control(type='text', name='detail', ng-model='data.detail', required='')
       p.help-block(ng-show='form.detail.$error.required && submitted')
         | Eine Beschreibung ist erforderlich.
 
     .form-group(ng-class='{ "has-success": form.interval.$valid && submitted,\
     "has-error": form.interval.$invalid && submitted }')
       label Intervall
-      input.form-control(type='text', name='interval', ng-model='budget.interval', required='')
+      input.form-control(type='text', name='interval', ng-model='data.interval', required='')
+      p.help-block(ng-show='form.interval.$error.required && submitted')
+        | Eine Intervallangabe ist erforderlich.
+
+    .form-group(ng-class='{ "has-success": form.startdate.$valid && submitted,\
+    "has-error": form.startdate.$invalid && submitted }')
+      label Abrechnungsbeginn
+      .input-group
+        input.form-control(type="text", name="startdate", datepicker-popup="longDate",
+          ng-model="data.startdate", datepicker-mode="year", is-open="opened",
+          show-button-bar="false")
+        span.input-group-btn
+          button.btn.btn-default(ng-click='open($event)')
+            span.glyphicon.glyphicon-calendar
+
+    .form-group(ng-class='{ "has-success": form.budget.$valid && submitted,\
+    "has-error": form.budget.$invalid && submitted }')
+      label Budget
+      input.form-control(type='currency', name='budget', ng-model='data.budget',
+        pattern="^\d+(\.|\,)\d{2}$", required='')
       p.help-block(ng-show='form.interval.$error.required && submitted')
         | Eine Intervallangabe ist erforderlich.
 
 .modal-footer
-  button.btn.btn-primary(ng-click="ok()")
+  button.btn.btn-primary(ng-click="done()")
     | OK
   button.btn.btn-warning(ng-click="cancel()")
     | Abbrechen

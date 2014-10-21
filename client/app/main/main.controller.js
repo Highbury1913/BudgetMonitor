@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('budgetApp')
-  .controller('MainCtrl', function ($scope, $http, socket, Auth) {
-    $scope.bookings = [];
+  .controller('MainCtrl', function ($scope, $http, socket, Auth, Budgets) {
+    $scope.budgets = Budgets.getBudgets();
     $scope.opened = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
@@ -19,9 +19,16 @@ angular.module('budgetApp')
 
     $scope.booking = angular.copy($scope.defaultbooking);
 
+    $scope.$watch(function () {
+       return Budgets.getBudgets();
+     },
+      function(newVal, oldVal) {
+        $scope.budgets = newVal;
+    }, true);
+
     $http.get('/api/budgets').success(function(budgets) {
-      $scope.bookings = budgets;
-      socket.syncUpdates('budget', $scope.bookings);
+      $scope.budgets = budgets;
+      socket.syncUpdates('budget', $scope.budgets);
     });
 
     $scope.open = function($event) {

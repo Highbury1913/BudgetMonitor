@@ -3,9 +3,9 @@
     .container-fluid
       div.navbar-header
         .navbar-brand Budget Übersicht
-      div#budget-navbar-main
+      div#budget-navbar-main(ng-controller="dialogCtrl")
        form.navbar-form.navbar-right
-          button.btn.btn-primary
+          button.btn.btn-primary(ng-click="launchBudgetDlg()")
             span.glyphicon.glyphicon-plus
             strong Neues Budget
 
