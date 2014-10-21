@@ -9,11 +9,11 @@
       p.help-block(ng-show='form.name.$error.required && submitted')
         | Ein Name ist erforderlich.
 
-    .form-group(ng-class='{ "has-success": form.detail.$valid && submitted,\
-    "has-error": form.detail.$invalid && submitted }')
+    .form-group(ng-class='{ "has-success": form.info.$valid && submitted,\
+    "has-error": form.info.$invalid && submitted }')
       label Beschreibung
-      input.form-control(type='text', name='detail', ng-model='data.detail', required='')
-      p.help-block(ng-show='form.detail.$error.required && submitted')
+      input.form-control(type='text', name='detail', ng-model='data.info', required='')
+      p.help-block(ng-show='form.info.$error.required && submitted')
         | Eine Beschreibung ist erforderlich.
 
     .form-group(ng-class='{ "has-success": form.interval.$valid && submitted,\

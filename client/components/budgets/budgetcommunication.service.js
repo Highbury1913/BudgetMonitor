@@ -1,22 +1,28 @@
 'use strict';
 
 angular.module('budgetApp')
-  .factory('BudgetCommunication', function ($resource, User) {
+  .factory('BudgetCommunication', function ($resource, Auth) {
     return $resource('/api/budgets/:id/:controller', {
       id: '@_id'
     },
     {
-      changePassword: {
-        method: 'PUT',
-        params: {
-          controller:'password'
-        }
-      },
-      get: {
+      index: {
         method: 'GET',
         params: {
-          id:'me'
-        }
+          controller:'overview',
+          id:Auth.getCurrentUser()._id
+        },
+        isArray: true
+      },
+      save: {
+        method: 'POST',
+        params: {}
       }
+      // get: {
+      //   method: 'GET',
+      //   params: {
+      //     id:'me'
+      //   }
+      // }
     });
   });

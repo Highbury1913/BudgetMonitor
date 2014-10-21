@@ -24,9 +24,9 @@ angular.module('budgetApp')
 
     //== Methods ==//
     $scope.launchBudgetDlg = function(){
-      var dlg = dialogs.create('/components/addBudgetDlg/addBudgetDlg.html','budgetDlgCtrl',$scope.budget);
+      var dlg = dialogs.create('/components/addBudgetDlg/addBudgetDlg.html','budgetDlgCtrl',angular.copy($scope.budget));
       dlg.result.then(function(data){
-        Budgets.addBudget(data);
+        Budgets.createBudget(data);
       });
     }; // end launch
   }) // end dialogTest

@@ -16,6 +16,10 @@ var BudgetSchema = new Schema({
   interval: String,
   intervaldata: [{startdate:Date, budget: Number}],
   currencySymbol: String,
+},
+{
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true },
 });
 
 /**

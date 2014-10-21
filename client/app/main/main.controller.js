@@ -17,19 +17,12 @@ angular.module('budgetApp')
       value: ''
     };
 
-    $scope.booking = angular.copy($scope.defaultbooking);
-
     $scope.$watch(function () {
        return Budgets.getBudgets();
      },
       function(newVal, oldVal) {
         $scope.budgets = newVal;
     }, true);
-
-    $http.get('/api/budgets').success(function(budgets) {
-      $scope.budgets = budgets;
-      socket.syncUpdates('budget', $scope.budgets);
-    });
 
     $scope.open = function($event) {
       $event.preventDefault();
@@ -44,24 +37,6 @@ angular.module('budgetApp')
       date.setMinutes(0);
       date.setHours(12);
     }
-
-    $scope.addBooking = function() {
-      if($scope.booking === '') {
-        return;
-      }
-      removeTimeFromDate($scope.booking.bookingtime);
-      $scope.booking.entrytime = new Date();
-      $scope.booking.modificationtime = new Date();
-      $scope.booking.addedby = $scope.getCurrentUser().name;
-      $scope.booking.modifiedby = $scope.getCurrentUser().name;
-      $scope.booking.value = parseFloat($scope.booking.value.replace(',', '.'));
-      $http.post('/api/budgets', $scope.booking);
-      $scope.booking = angular.copy($scope.defaultbooking);
-    };
-
-    $scope.deleteBooking = function(booking) {
-      $http.delete('/api/budgets/' + booking._id);
-    };
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('budget');

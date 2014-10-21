@@ -5,7 +5,7 @@ var Budget = require('./budget.model');
 
 // Get list of budgets
 exports.index = function (req, res) {
-  Budget.find({}, '-interval -intervaldata', function (err, budgets) {
+  Budget.find({_owner:req.params.id}, '', function (err, budgets) {
     if (err) {
       return handleError(res, err);
     }
