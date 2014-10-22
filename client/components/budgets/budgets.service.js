@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetApp')
-  .factory('Budgets', function ($resource, User, Auth, BudgetCommunication) {
+  .factory('Budgets', function ($resource, User, Auth, BudgetCommunication, socket) {
     var budgets = [];
 
     function encodeBudget(budget) {
@@ -19,7 +19,21 @@ angular.module('budgetApp')
       return encodedBudget;
     };
 
-    budgets = BudgetCommunication.index();
+    function getBudgets( callback ) {
+      var cb = callback || angular.noop;
+      return BudgetCommunication.index(
+          function(data) {
+            return cb(data);
+          },
+          function(err) {
+            return cb(err);
+          }.bind(this)).$promise;
+    }
+
+    getBudgets().then(function(data) {
+      budgets = data;
+      socket.syncUpdates('budget', budgets);
+    });
 
     return {
 

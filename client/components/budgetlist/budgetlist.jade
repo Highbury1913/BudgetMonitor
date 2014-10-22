@@ -25,10 +25,10 @@
       tbody
         tr(ng-repeat="budget in budgets | orderBy:predicate:reverse")
           td.rs-text {{budget.name}}
-          td.rs-text {{budget.detail}}
-          td.rs-time {{budget.latestBudget.startdate|date:shortdate}}
+          td.rs-text {{budget.info}}
           td.rs-text {{budget.latestBudget.interval}}
-          td.rs-text {{booking.latestBudget.budget|currency}}
+          td.rs-time {{budget.latestBudget.startdate|date:shortdate}}
+          td.rs-text {{budget.latestBudget.budget|currency}}
           td.icons
             .show-on-hover
               a.remove(ng-click="deleteBooking(booking)")
