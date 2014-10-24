@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetApp')
-  .directive('budgetlist', function ($http) {
+  .directive('budgetlist', function ($http, Budgets) {
     return {
       templateUrl: 'components/budgetlist/budgetlist.html',
       scope: {
@@ -11,7 +11,7 @@ angular.module('budgetApp')
       link: function (scope, element, attrs) {
         scope.predicate = '-value';
         scope.deleteBudget = function(budget) {
-          $http.delete('/api/budgets/' + budget._id);
+          Budgets.delete(budget);
         }
       }
     };

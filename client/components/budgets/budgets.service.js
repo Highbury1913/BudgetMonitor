@@ -40,22 +40,24 @@ angular.module('budgetApp')
       getBudgets: function() {
         return budgets;
       },
-      /**
-       * Create a new user
-       *
-       * @param  {Object}   user     - user info
-       * @param  {Function} callback - optional
-       * @return {Promise}
-       */
-      createBudget: function(budget, callback) {
+      create: function(budget, callback) {
         var cb = callback || angular.noop;
         var budgetEncoded = encodeBudget(budget);
 
         return BudgetCommunication.save(budgetEncoded,
           function(data) {
-            budgets = BudgetCommunication.index();
-            // currentBudget = BudgetCommunication.getCurrent();
-            return cb(currentBudget);
+            return cb(data);
+          },
+          function(err) {
+            return cb(err);
+          }.bind(this)).$promise;
+      },
+      delete: function(budget, callback) {
+        var cb = callback || angular.noop;
+
+        return BudgetCommunication.delete(budget,
+          function(data) {
+            return cb(data);
           },
           function(err) {
             return cb(err);
