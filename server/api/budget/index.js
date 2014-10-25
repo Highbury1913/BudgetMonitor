@@ -5,7 +5,8 @@ var controller = require('./budget.controller');
 
 var router = express.Router();
 
-router.get('/:id/overview', controller.index);
+router.get('/owner/:id', controller.owned);
+router.get('/access/:id', controller.shared);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);

@@ -2,14 +2,14 @@
 
 angular.module('budgetApp')
   .factory('BudgetCommunication', function ($resource, Auth) {
-    return $resource('/api/budgets/:id/:controller', {
+    return $resource('/api/budgets/:path/:id/:controller', {
       id: '@_id'
     },
     {
       index: {
         method: 'GET',
         params: {
-          controller:'overview',
+          path:'access',
           id:Auth.getCurrentUser()._id
         },
         isArray: true

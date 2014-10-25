@@ -34,6 +34,7 @@ angular.module('budgetApp')
   .controller('budgetDlgCtrl',function($log,$scope,$modalInstance,data){
     $scope.data = data;
     $scope.opened = false;
+    $scope.errors = {};
 
     //== Listeners ==//
     $scope.$watch('data.startdate',function(val,old){
@@ -43,8 +44,9 @@ angular.module('budgetApp')
 
     //== Methods ==//
     $scope.setDate = function(){
-      if(!angular.isDefined($scope.data.startdate))
+      if(!angular.isDefined($scope.data.startdate)) {
         $scope.data.startdate = new Date(); // today
+      }
     };
     $scope.setDate();
 
@@ -54,8 +56,11 @@ angular.module('budgetApp')
       $scope.opened = true;
     }; // end open
 
-    $scope.done = function(){
-      $modalInstance.close($scope.data);
+    $scope.done = function(form){
+      $scope.submitted = true;
+      if(form.$valid) {
+        $modalInstance.close($scope.data);
+      }
     }; // end done
 
     $scope.cancel = function(){

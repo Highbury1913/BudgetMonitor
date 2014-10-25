@@ -4,8 +4,18 @@ var _ = require('lodash');
 var Budget = require('./budget.model');
 
 // Get list of budgets
-exports.index = function (req, res) {
+exports.owned = function (req, res) {
   Budget.find({_owner:req.params.id}, '', function (err, budgets) {
+    if (err) {
+      return handleError(res, err);
+    }
+    return res.json(200, budgets);
+  });
+};
+
+// Get list of shared budgets
+exports.shared = function (req, res) {
+  Budget.find({'access._userid':req.params.id}, '', function (err, budgets) {
     if (err) {
       return handleError(res, err);
     }

@@ -21,6 +21,8 @@
           th Interval
           th Start date
           th Budget
+          th Genutzt
+          th Übrig
           th.icons
       tbody
         tr(ng-repeat="budget in budgets | orderBy:predicate:reverse")
@@ -28,6 +30,8 @@
           td.rs-text {{budget.info}}
           td.rs-text {{budget.latestBudget.interval}}
           td.rs-time {{budget.latestBudget.startdate|date:shortdate}}
+          td.rs-text {{budget.latestBudget.budget|currency}}
+          td.rs-text {{'0'|currency}}
           td.rs-text {{budget.latestBudget.budget|currency}}
           td.icons
             .show-on-hover

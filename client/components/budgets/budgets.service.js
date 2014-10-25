@@ -12,12 +12,12 @@ angular.module('budgetApp')
         intervaldata : [],
         _owner : Auth.getCurrentUser()._id,
         access : [],
-        currencySymbol : "€",
+        currencySymbol : '€',
       };
       encodedBudget.intervaldata.push({startdate: budget.startdate, budget: budget.budget});
       encodedBudget.access.push({_userid: Auth.getCurrentUser()._id});
       return encodedBudget;
-    };
+    }
 
     function getBudgets( callback ) {
       var cb = callback || angular.noop;
