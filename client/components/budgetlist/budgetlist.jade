@@ -31,7 +31,7 @@
           td.rs-text {{budget.latestBudget.budget|currency}}
           td.icons
             .show-on-hover
-              a.remove(ng-click="deleteBudget(budget)")
+              a.remove(ng-click="deleteBudget(budget.name, budget)")
                 span.glyphicon.glyphicon-remove
               a.edit(ng-click="editBudget(budget)")
                 span.glyphicon.glyphicon-edit

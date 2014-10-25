@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetApp')
-  .directive('budgetlist', function ($http, Budgets) {
+  .directive('budgetlist', function ($http, Budgets, Modal) {
     return {
       templateUrl: 'components/budgetlist/budgetlist.html',
       scope: {
@@ -10,9 +10,9 @@ angular.module('budgetApp')
       restrict: 'E',
       link: function (scope, element, attrs) {
         scope.predicate = '-value';
-        scope.deleteBudget = function(budget) {
+        scope.deleteBudget = Modal.confirm.delete( function(budget) {
           Budgets.delete(budget);
-        }
+        });
       }
     };
   });

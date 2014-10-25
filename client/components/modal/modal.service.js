@@ -49,17 +49,17 @@ angular.module('budgetApp')
             deleteModal = openModal({
               modal: {
                 dismissable: true,
-                title: 'Confirm Delete',
-                html: '<p>Are you sure you want to delete <strong>' + name + '</strong> ?</p>',
+                title: 'Löschen bestätigen',
+                html: '<p>Bist Du sicher dass Du <strong>' + name + '</strong> löschen möchtest?</p>',
                 buttons: [{
                   classes: 'btn-danger',
-                  text: 'Delete',
+                  text: 'Löschen',
                   click: function(e) {
                     deleteModal.close(e);
                   }
                 }, {
                   classes: 'btn-default',
-                  text: 'Cancel',
+                  text: 'Abbrechen',
                   click: function(e) {
                     deleteModal.dismiss(e);
                   }
