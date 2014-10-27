@@ -37,7 +37,7 @@ angular.module('budgetApp')
     $scope.errors = {};
 
     //== Listeners ==//
-    $scope.$watch('data.startdate',function(val,old){
+    $scope.$watch('data.startdate',function(val){
       $log.info('Date Changed: ' + val);
       $scope.opened = false;
     });
@@ -74,4 +74,4 @@ angular.module('budgetApp')
     dialogsProvider.useEscClose(true);
     dialogsProvider.useCopy(false);
     // dialogsProvider.setSize('sm');
-  }) // end config
+  }); // end config

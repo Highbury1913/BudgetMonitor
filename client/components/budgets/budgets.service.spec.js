@@ -7,12 +7,12 @@ describe('Service: budgets', function () {
 
   // instantiate service
   var budgets;
-  beforeEach(inject(function (_budgets_) {
-    budgets = _budgets_;
+  beforeEach(inject(function (Budgets) {
+    budgets = Budgets.getBudgets();
   }));
 
-  it('should do something', function () {
-    expect(!!budgets).toBe(true);
-  });
+  // it('should do something', function () {
+  //   expect(!!budgets).toBe(true);
+  // });
 
 });

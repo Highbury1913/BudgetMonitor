@@ -4,6 +4,13 @@ angular.module('budgetApp')
   .factory('Budgets', function ($resource, User, Auth, BudgetCommunication, socket) {
     var budgets = [];
 
+    function removeTimeFromDate(date) {
+      date.setMilliseconds(0);
+      date.setSeconds(0);
+      date.setMinutes(0);
+      date.setHours(12);
+    }
+
     function encodeBudget(budget) {
       var encodedBudget = {
         name : budget.name,
@@ -14,6 +21,7 @@ angular.module('budgetApp')
         access : [],
         currencySymbol : '€',
       };
+      removeTimeFromDate(budget.startdate);
       encodedBudget.intervaldata.push({startdate: budget.startdate, budget: budget.budget});
       encodedBudget.access.push({_userid: Auth.getCurrentUser()._id});
       return encodedBudget;

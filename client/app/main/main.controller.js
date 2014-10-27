@@ -20,7 +20,7 @@ angular.module('budgetApp')
     $scope.$watch(function () {
        return Budgets.getBudgets();
      },
-      function(newVal, oldVal) {
+      function(newVal) {
         $scope.budgets = newVal;
     }, true);
 
@@ -30,13 +30,6 @@ angular.module('budgetApp')
 
       $scope.opened = true;
     };
-
-    function removeTimeFromDate(date) {
-      date.setMilliseconds(0);
-      date.setSeconds(0);
-      date.setMinutes(0);
-      date.setHours(12);
-    }
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('budget');

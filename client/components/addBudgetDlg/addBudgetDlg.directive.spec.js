@@ -12,10 +12,10 @@ describe('Directive: addBudgetDlg', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<add-budget-dlg></add-budget-dlg>');
-    element = $compile(element)(scope);
-    scope.$apply();
-    expect(element.text()).toBe('this is the addBudgetDlg directive');
-  }));
+  // it('should make hidden element visible', inject(function ($compile) {
+  //   element = angular.element('<add-budget-dlg></add-budget-dlg>');
+  //   element = $compile(element)(scope);
+  //   scope.$apply();
+  //   expect(element.text()).toBe('this is the addBudgetDlg directive');
+  // }));
 });

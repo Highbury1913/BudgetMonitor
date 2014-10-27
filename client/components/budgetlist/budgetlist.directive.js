@@ -8,7 +8,7 @@ angular.module('budgetApp')
         budgets: '=',
       },
       restrict: 'E',
-      link: function (scope, element, attrs) {
+      link: function (scope) {
         scope.predicate = '-value';
         scope.deleteBudget = Modal.confirm.delete( function(budget) {
           Budgets.delete(budget);

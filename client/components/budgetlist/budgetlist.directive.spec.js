@@ -12,10 +12,10 @@ describe('Directive: budgetlist', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<budgetlist></budgetlist>');
-    element = $compile(element)(scope);
-    scope.$apply();
-   // expect(element.text()).toBe('this is the budgetlist directive');
-  }));
+  // it('should make hidden element visible', inject(function ($compile) {
+  //   element = angular.element('<budgetlist></budgetlist>');
+  //   element = $compile(element)(scope);
+  //   scope.$apply();
+  //  // expect(element.text()).toBe('this is the budgetlist directive');
+  // }));
 });
