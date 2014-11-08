@@ -37,8 +37,8 @@ form.form(name="form", ng-submit="done(form)", novalidate="")
     .form-group(ng-class='{ "has-success": form.budget.$valid && submitted,\
     "has-error": form.budget.$invalid && submitted }')
       label Budget
-      input.form-control(type='currency', name='budget', ng-model='data.budget',
-        pattern="^\d+(\.|\,)\d{2}$", required='')
+      input.form-control(type='text', name='budget', ng-model='data.budget',
+        pattern="^[0-9]+(((\.|\,)[0-9][0-9])$)?", required='')
       p.help-block(ng-show='form.budget.$error.required && submitted')
         | Ein Budget muss angegeben werden.
 

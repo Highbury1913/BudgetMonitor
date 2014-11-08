@@ -58,13 +58,18 @@ exports.update = function (req, res) {
     if (!budget) {
       return res.send(404);
     }
-    var updated = _.merge(budget, req.body);
-    updated.save(function (err) {
-      if (err) {
-        return handleError(res, err);
-      }
-      return res.json(200, budget);
-    });
+    var updated = budget;
+    if (req.body.hasOwnProperty('budget')) {
+      updated.intervaldata.push(req.body);
+      updated.save(function (err) {
+        if (err) {
+          return handleError(res, err);
+        }
+        return res.json(200, updated);
+      });
+    } else {
+      return res.json(200, updated);
+    }
   });
 };
 

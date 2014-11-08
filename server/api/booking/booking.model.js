@@ -4,11 +4,20 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var BookingSchema = new Schema({
-  budgetid: Schema.Types.ObjectId,
+  _budget: {
+    type: Schema.Types.ObjectId,
+    ref: 'Budget'
+    },
   entrytime: Date,
-  addedby: String,
+  addedby: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+    },
   modificationtime: Date,
-  modifiedby: String,
+  modifiedby: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+    },
   bookingtime: Date,
   name: String,
   necessity: String,
