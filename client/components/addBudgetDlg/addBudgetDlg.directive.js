@@ -33,6 +33,7 @@ angular.module('budgetApp')
 
   .controller('budgetDlgCtrl',function($log,$scope,$modalInstance,data){
     $scope.data = data;
+    //$scope.data.startdate = new Date(data.startdate);
     $scope.opened = false;
     $scope.errors = {};
 

@@ -29,7 +29,7 @@ form.form(name="form", ng-submit="done(form)", novalidate="")
       .input-group
         input.form-control(type="text", name="startdate", datepicker-popup="longDate",
           ng-model="data.startdate", datepicker-mode="year", is-open="opened",
-          show-button-bar="false")
+          show-button-bar="false", date-format="MM/dd/yyyy", date-type="string")
         span.input-group-btn
           button.btn.btn-default(ng-click='open($event)')
             span.glyphicon.glyphicon-calendar

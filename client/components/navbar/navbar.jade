@@ -1,29 +1,16 @@
-div.navbar.navbar-default.navbar-static-top(ng-controller='NavbarCtrl')
-  div.container
-    div.navbar-header
-      a.navbar-brand(href='/') Budget Monitor
-
-    div#navbar-main
-      ul.nav.navbar-nav
-        li(ng-repeat='item in menu', ng-class='{active: isActive(item.link)}')
-          a(ng-href='{{item.link}}') {{item.title}}
-
-        li(ng-show='isAdmin()', ng-class='{active: isActive("/admin")}')
-          a(href='/admin') Admin
-
-      ul.nav.navbar-nav.navbar-right
-        li(ng-hide='isLoggedIn()', ng-class='{active: isActive("/signup")}')
-          a(href='/signup') Beitreten
-
-        li(ng-hide='isLoggedIn()', ng-class='{active: isActive("/login")}')
-          a(href='/login') Anmelden
-
-        li(ng-show='isLoggedIn()')
-          p.navbar-text Hallo {{ getCurrentUser().name }}
-
-        li(ng-show='isLoggedIn()', ng-class='{active: isActive("/settings")}')
-          a(href='/settings')
-            span.glyphicon.glyphicon-cog
-
-        li(ng-show='isLoggedIn()', ng-class='{active: isActive("/logout")}')
-          a(href='', ng-click='logout()') Logout
+div(layout="column", layout-fill, ng-controller='NavbarCtrl')
+  md-toolbar
+    .md-toolbar-tools
+      md-button(href='/')
+        span Budget Monitor
+      span(flex) &nbsp;
+      md-button(ng-href='/signup', ng-hide='isLoggedIn()', ng-class='{active: isActive("/signup")}')
+        md-icon(icon="/assets/images/signup.svg", style="padding: 6px; margin-top: -4px;")
+      md-button.md-primary(ng-href='/login', ng-hide='isLoggedIn()', ng-class='{active: isActive("/login")}')
+        md-icon(icon="/assets/images/login.svg", style="padding: 6px; margin-top: -4px;")
+      span(ng-show='isLoggedIn()') Hallo {{ getCurrentUser().name }}
+      span(ng-show='isLoggedIn()', ng-class='{active: isActive("/settings")}')
+        a(href='/settings')
+          span.glyphicon.glyphicon-cog
+      md-button.md-primary(ng-href='', ng-click='logout()', ng-show='isLoggedIn()', ng-class='{active: isActive("/logout")}')
+        md-icon(icon="/assets/images/logout.svg", style="padding: 6px; margin-top: -4px;")

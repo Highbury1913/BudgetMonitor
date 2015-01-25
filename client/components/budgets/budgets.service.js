@@ -60,6 +60,18 @@ angular.module('budgetApp')
             return cb(err);
           }.bind(this)).$promise;
       },
+      update: function(budget, callback) {
+        var cb = callback || angular.noop;
+        var budgetEncoded = encodeBudget(budget);
+
+        return BudgetCommunication.save(budgetEncoded,
+          function(data) {
+            return cb(data);
+          },
+          function(err) {
+            return cb(err);
+          }.bind(this)).$promise;
+      },
       delete: function(budget, callback) {
         var cb = callback || angular.noop;
 

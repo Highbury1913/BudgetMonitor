@@ -4,10 +4,12 @@ angular.module('budgetApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
+  'ngMessages',
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'dialogs.main'
+  'dialogs.main',
+  'ngMaterial'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

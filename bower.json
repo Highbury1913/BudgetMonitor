@@ -10,16 +10,21 @@
     "angular-resource": ">=1.2.*",
     "angular-cookies": ">=1.2.*",
     "angular-sanitize": ">=1.2.*",
+    "angular-messages": ">=1.2.*",
     "angular-i18n": ">=1.2.*",
     "angular-bootstrap": "~0.11.0",
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
     "angular-socket-io": "~0.6.0",
     "angular-ui-router": "~0.2.10",
-    "angular-dialog-service": ">=5.2.0"
+    "angular-dialog-service": ">=5.2.0",
+    "angular-material": "*"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
     "angular-scenario": ">=1.2.*"
+  },
+  "resolutions": {
+    "angular": ">=1.2.*"
   }
 }

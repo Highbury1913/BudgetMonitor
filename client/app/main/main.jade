@@ -1,65 +1,68 @@
 div(ng-include='"components/navbar/navbar.html"')
 
-header#banner.hero-unit(ng-hide="isLoggedIn()")
-  .container
-    h1 Willkommen beim Budget Monitor!
-    p.lead Manage und überwache dein Budget online.
-    img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
-  .container
-    h2.lead Bitte logge Dich ein.
-
-.container(ng-show="isLoggedIn()")
-  budgetlist(budgets="budgets")
-
-.container(ng-show="isLoggedIn() && false")
-  h1 Neue Buchung eingeben
-  form.form(name='form', ng-submit='addBooking()', novalidate='')
-    .form-group.col-sm-2
-      label Buchungsdatum
-      .input-group
-        input.form-control(type='text', name='bookingdate', datepicker-popup="dd.MM.yyyy", ng-model='booking.bookingtime', required='')
-        span.input-group-btn
-          button.btn.btn-default(type="button", ng-click="open($event)")
-            i.glyphicon.glyphicon-calendar
-      p.help-block(ng-show='form.bookingdate.$error.required && submitted')
-        | Ein Buchungsdatum wird benötigt.
-
-    .form-group.col-sm-3
-      label Buchung
-      input.form-control(type='text', name='bookingname', ng-model='booking.name', required='')
-      p.help-block(ng-show='form.bookingname.$error.required && submitted')
-        | Ein Buchungstext wird benötigt.
-
-    .form-group.col-sm-2
-      label Betrag
-      .input-group
-        input.form-control(type='text', name='value', ng-model='booking.value', required='')
-        span.input-group-addon €
-      p.help-block(ng-show='form.value.$error.required && submitted')
-        | Ein Buchungsbetrag wird benötigt.
-
-    .form-group.col-sm-2
-      label Type
-      input.form-control(type='text', name='type', ng-model='booking.type', required='')
-      p.help-block(ng-show='form.type.$error.required && submitted')
-        | Ein Buchungstyp wird benötigt.
-
-    .form-group.col-sm-2
-      label Kategorie
-      input.form-control(type='text', name='category', ng-model='booking.category', required='')
-      p.help-block(ng-show='form.category.$error.required && submitted')
-        | Eine Buchungskategorie wird benötigt.
-
-    div.col-sm-1
-      label
-        = " "
-      button.btn.btn-primary(type='submit')
-        | Add
 
 
-footer.footer
-  .container
-    p
-      | Budget Monitor 1.0.0
-      = ' | '
-      a(href='mailto:rschulz@marshfire.net') @Ronny Schulz
+//- header#banner.hero-unit(ng-hide="isLoggedIn()")
+//-   .container
+//-     h1 Willkommen beim Budget Monitor!
+//-     p.lead Manage und überwache dein Budget online.
+//-     //- img(src='assets/images/budgetmonitor.svg', alt='I\'m Yeoman')
+//-     md-icon(icon='assets/images/budgetmonitor.svg')
+//-   .container
+//-     h2.lead Bitte logge Dich ein.
+
+//- .container(ng-show="isLoggedIn()")
+//-   budgetlist(budgets="budgets")
+
+//- .container(ng-show="isLoggedIn() && false")
+//-   h1 Neue Buchung eingeben
+//-   form.form(name='form', ng-submit='addBooking()', novalidate='')
+//-     .form-group.col-sm-2
+//-       label Buchungsdatum
+//-       .input-group
+//-         input.form-control(type='text', name='bookingdate', datepicker-popup="dd.MM.yyyy", ng-model='booking.bookingtime', required='')
+//-         span.input-group-btn
+//-           button.btn.btn-default(type="button", ng-click="open($event)")
+//-             i.glyphicon.glyphicon-calendar
+//-       p.help-block(ng-show='form.bookingdate.$error.required && submitted')
+//-         | Ein Buchungsdatum wird benötigt.
+
+//-     .form-group.col-sm-3
+//-       label Buchung
+//-       input.form-control(type='text', name='bookingname', ng-model='booking.name', required='')
+//-       p.help-block(ng-show='form.bookingname.$error.required && submitted')
+//-         | Ein Buchungstext wird benötigt.
+
+//-     .form-group.col-sm-2
+//-       label Betrag
+//-       .input-group
+//-         input.form-control(type='text', name='value', ng-model='booking.value', required='')
+//-         span.input-group-addon €
+//-       p.help-block(ng-show='form.value.$error.required && submitted')
+//-         | Ein Buchungsbetrag wird benötigt.
+
+//-     .form-group.col-sm-2
+//-       label Type
+//-       input.form-control(type='text', name='type', ng-model='booking.type', required='')
+//-       p.help-block(ng-show='form.type.$error.required && submitted')
+//-         | Ein Buchungstyp wird benötigt.
+
+//-     .form-group.col-sm-2
+//-       label Kategorie
+//-       input.form-control(type='text', name='category', ng-model='booking.category', required='')
+//-       p.help-block(ng-show='form.category.$error.required && submitted')
+//-         | Eine Buchungskategorie wird benötigt.
+
+//-     div.col-sm-1
+//-       label
+//-         = " "
+//-       button.btn.btn-primary(type='submit')
+//-         | Add
+
+
+//- footer.footer
+//-   .container
+//-     p
+//-       | Budget Monitor 1.0.0
+//-       = ' | '
+//-       a(href='mailto:rschulz@marshfire.net') @Ronny Schulz
