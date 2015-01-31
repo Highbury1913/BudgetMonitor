@@ -6,15 +6,17 @@ div(layout="column", layout-fill, ng-controller='NavbarCtrl')
       span(flex) &nbsp;
       md-button(ng-href='/signup', ng-hide='isLoggedIn()', ng-class='{active: isActive("/signup")}')
         span(layout="row" layout-align="start center")
-          md-icon(icon="/assets/images/signup.svg", style="padding: 6px; margin-top: -4px;")
+          md-icon(icon="/assets/images/signup.svg", style="margin-top: -4px; width:32px; height: 32px;")
           span(hide-sm) Sign up
       md-button(ng-href='/login', ng-hide='isLoggedIn()', ng-class='{active: isActive("/login")}')
         span(layout="row" layout-align="start center")
-          md-icon(icon="/assets/images/login.svg", style="padding: 6px; margin-top: -4px;")
+          md-icon(icon="/assets/images/login.svg", style="margin-top: -4px; width:32px; height: 32px;")
           span(hide-sm) Login
-      span(ng-show='isLoggedIn()') Hallo {{ getCurrentUser().name }}.&nbsp;
-      span(ng-show='isLoggedIn()', ng-class='{active: isActive("/settings")}')
-        a(href='/settings')
-          span.glyphicon.glyphicon-cog
-      md-button.md-primary(ng-href='', ng-click='logout()', ng-show='isLoggedIn()', ng-class='{active: isActive("/logout")}')
-        md-icon(icon="/assets/images/logout.svg", style="padding: 6px; margin-top: -4px;")
+      md-button(ng-href='/settings', ng-show='isLoggedIn()', ng-class='{active: isActive("/settings")}')
+        span(layout="row" layout-align="start center")
+          md-icon(icon="/assets/images/settings.svg", style="margin-top: -4px; width:32px; height: 32px;")
+          span(hide-sm) &nbsp;Settings
+      md-button(ng-href='', ng-click='logout()', ng-show='isLoggedIn()', ng-class='{active: isActive("/logout")}')
+        span(layout="row" layout-align="start center")
+          md-icon(icon="/assets/images/logout.svg", style="margin-top: -4px; width:32px; height: 32px;")
+          span(hide-sm) &nbsp;Logout

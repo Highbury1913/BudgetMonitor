@@ -1,41 +1,65 @@
-md-content.md-padding.budgetlist
-  div.navbar.navbar-default
-    .container-fluid
-      div.navbar-header
-        .navbar-brand Budget Übersicht
-      div#budget-navbar-main(ng-controller="dialogCtrl")
-       form.navbar-form.navbar-right
-          button.btn.btn-primary(ng-click="launchBudgetDlg()")
-            span.glyphicon.glyphicon-plus
-            strong Neues Budget
 
-  #no-budgets(ng-hide="budgets")
-    alert.alert-info
-      | Keine Budgets vorhanden. Leg doch ein neues an!
-  #budget-overview(ng-show="budgets")
-    table.col-sm-12.table-striped.table-hover.table
-      thead
-        tr
-          th Name
-          th Detail
-          th Interval
-          th Start date
-          th Budget
-          th Genutzt
-          th Übrig
-          th.icons
-      tbody
-        tr(ng-repeat="budget in budgets | orderBy:predicate:reverse")
-          td.rs-text {{budget.name}}
-          td.rs-text {{budget.info}}
-          td.rs-text {{budget.latestBudget.interval}}
-          td.rs-time {{budget.latestBudget.startdate|date:shortdate}}
-          td.rs-text {{budget.latestBudget.budget|currency}}
-          td.rs-text {{'0'|currency}}
-          td.rs-text {{budget.latestBudget.budget|currency}}
-          td.icons
-            .show-on-hover
-              a.remove(ng-click="deleteBudget(budget.name, budget)")
-                span.glyphicon.glyphicon-remove
-              a.edit(ng-click="editBudget(budget)")
-                span.glyphicon.glyphicon-edit
+md-button.md-fab.md-accent(ng-controller="dialogCtrl", ng-click="launchBudgetDlg()", style="position: fixed; right: 20px; bottom:20px;")
+  md-icon(icon="assets/images/plus-black.svg", style="width: 24px; height: 24px;")
+
+md-content(style="width: 100%; max-width: 1000px;margin: auto;")
+  md-card
+    md-toolbar.md-accent(md-scroll-shrink)
+      .md-toolbar-tools
+        h3 Hey {{getCurrentUser().name}} - your budgets:
+    md-card-content
+      md-list
+        md-item(ng-repeat="budget in budgets")
+          md-item-content
+            .md-tile-left
+              md-icon(icon="assets/images/login-black.svg", style="width: 48px; height: 48px;")
+            .md-tile-content
+              h3 {{budget.name}}
+              h4 {{budget.info}}
+              p {{budget.latestBudget.interval}} - {{budget.latestBudget.startdate| date:shortdate}}
+            .md-tile-content
+              h4 0 / {{budget.latestBudget.budget | currency}}
+            //-.md-tile-right
+
+
+//- md-content.md-padding.budgetlist
+//-   div.navbar.navbar-default
+//-     .container-fluid
+//-       div.navbar-header
+//-         .navbar-brand Budget Übersicht
+//-       div#budget-navbar-main(ng-controller="dialogCtrl")
+//-        form.navbar-form.navbar-right
+//-           button.btn.btn-primary(ng-click="launchBudgetDlg()")
+//-             span.glyphicon.glyphicon-plus
+//-             strong Neues Budget
+
+//-   #no-budgets(ng-hide="budgets")
+//-     alert.alert-info
+//-       | Keine Budgets vorhanden. Leg doch ein neues an!
+//-   #budget-overview(ng-show="budgets")
+//-     table.col-sm-12.table-striped.table-hover.table
+//-       thead
+//-         tr
+//-           th Name
+//-           th Detail
+//-           th Interval
+//-           th Start date
+//-           th Budget
+//-           th Genutzt
+//-           th Übrig
+//-           th.icons
+//-       tbody
+//-         tr(ng-repeat="budget in budgets | orderBy:predicate:reverse")
+//-           td.rs-text {{budget.name}}
+//-           td.rs-text {{budget.info}}
+//-           td.rs-text {{budget.latestBudget.interval}}
+//-           td.rs-time {{budget.latestBudget.startdate|date:shortdate}}
+//-           td.rs-text {{budget.latestBudget.budget|currency}}
+//-           td.rs-text {{'0'|currency}}
+//-           td.rs-text {{budget.latestBudget.budget|currency}}
+//-           td.icons
+//-             .show-on-hover
+//-               a.remove(ng-click="deleteBudget(budget.name, budget)")
+//-                 span.glyphicon.glyphicon-remove
+//-               a.edit(ng-click="editBudget(budget)")
+//-                 span.glyphicon.glyphicon-edit

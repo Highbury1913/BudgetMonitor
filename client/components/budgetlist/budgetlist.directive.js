@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetApp')
-  .directive('budgetlist', function ($http, Budgets, Modal, dialogs) {
+  .directive('budgetlist', function ($http, Budgets, Modal, dialogs, Auth) {
     return {
       templateUrl: 'components/budgetlist/budgetlist.html',
       scope: {
@@ -10,6 +10,7 @@ angular.module('budgetApp')
       restrict: 'E',
       link: function (scope) {
         scope.predicate = '-value';
+        scope.getCurrentUser = Auth.getCurrentUser;
         scope.deleteBudget = Modal.confirm.delete( function(budget) {
           Budgets.delete(budget);
         });
