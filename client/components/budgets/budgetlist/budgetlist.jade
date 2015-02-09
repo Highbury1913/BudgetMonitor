@@ -21,7 +21,7 @@
           .md-tile-right
             h3 0 / {{budget.latestBudget.budget | currency}}
             //-rs-bar(full={{budget.latestBudget.budget}}, current=0)
-          .md-button.md-fab(style="padding: 16px 0px 16px 16px;", ng-click="showBottomSheet($event, budget)")
+          .md-button(style="padding: 16px 0px 16px 16px;", ng-click="showBottomSheet($event, budget)")
             md-icon.no-accent(icon="assets/images/modify.svg", style="width: 32px; height: 32px; margin-top: -5px;")
           span(style="width: 10px", hide-sm)
         md-divider(ng-if="!$last")
