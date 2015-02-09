@@ -1,0 +1,9 @@
+md-bottom-sheet.md-list.md-has-header
+  h3 "{{budget.name}}" actions
+  md-list
+    md-item(ng-repeat="item in items")
+      md-button(aria-label="{{item.name}}", ng-click="listItemClick($index)",
+        layout-fill, layout="row", layout-align="space-around center")
+        md-icon(icon="/assets/images/{{item.icon}}.svg", style="margin-top: 0px; width: 32px; height: 32px; opacity: 0.57")
+        span(style="min-width: 200px; text-align: left;") &nbsp; {{ item.name }}
+        span(flex)

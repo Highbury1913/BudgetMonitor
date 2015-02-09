@@ -47,6 +47,7 @@ describe('Budget Model', function () {
     var budget = new Budget({
       name: 'FakeBudget',
       info: 'A fake budget for testing',
+      icon: 'testicon.svg',
       _owner: user._id,
       access: [{
         _userid: user._id
@@ -71,6 +72,7 @@ describe('Budget Model', function () {
     var budget = new Budget({
       name: 'FakeBudget',
       info: 'A fake budget for testing',
+      icon: 'testicon.svg',
       access: [{
         _userid: user._id
       }],
@@ -91,6 +93,7 @@ describe('Budget Model', function () {
     var budget = new Budget({
       name: 'FakeBudget',
       info: 'A fake budget for testing',
+      icon: 'testicon.svg',
       _owner: user._id,
       interval: 'weekly',
       intervaldata: [{
@@ -109,6 +112,7 @@ describe('Budget Model', function () {
     var budget = new Budget({
       name: 'FakeBudget',
       info: 'A fake budget for testing',
+      icon: 'testicon.svg',
       _owner: user._id,
       access: [],
       interval: 'weekly',
@@ -129,6 +133,7 @@ describe('Budget Model', function () {
       var budget = new Budget({
         name: 'FakeBudget',
         info: 'A fake budget for testing',
+        icon: 'testicon.svg',
         _owner: user._id,
         access: [{
           _userid: user._id

@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="signup.svg">
+   sodipodi:docname="signup-black.svg">
   <defs
      id="defs4">
     <linearGradient
@@ -48,7 +48,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="18"
-     inkscape:cx="23.441942"
+     inkscape:cx="13.664164"
      inkscape:cy="4.0962886"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -66,7 +66,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -77,18 +77,18 @@
      transform="translate(0,-1020.3622)">
     <g
        id="g4124"
-       style="fill:#323232;fill-opacity:1">
+       style="fill:#000000;fill-opacity:1">
       <path
          id="rect4037"
          transform="translate(0,1020.3622)"
          d="M 4.96875 5.75 C 2.7301741 5.75 0.875 7.60515 0.875 9.84375 L 0.875 26.90625 C 0.875 29.14485 2.7301741 31 4.96875 31 L 22.03125 31 C 24.269826 31 26.09375 29.14485 26.09375 26.90625 L 26.09375 10.0625 L 23.65625 12.59375 L 23.65625 26.90625 C 23.65625 27.83485 22.959809 28.53125 22.03125 28.53125 L 4.96875 28.53125 C 4.0401906 28.53125 3.3125 27.83485 3.3125 26.90625 L 3.3125 9.84375 C 3.3125 8.91515 4.0401906 8.21875 4.96875 8.21875 L 18.625 8.21875 L 21 5.75 L 4.96875 5.75 z "
-         style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#323232;fill-opacity:1;stroke:none;stroke-width:2.44086026999999994;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+         style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.44086026999999994;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
       <g
-         style="fill:#323232;fill-opacity:1"
+         style="fill:#000000;fill-opacity:1"
          transform="translate(-0.22222267,-0.66666671)"
          id="g4108">
         <rect
-           style="fill:#323232;fill-opacity:1;stroke:none"
+           style="fill:#000000;fill-opacity:1;stroke:none"
            id="rect4039"
            width="3"
            height="4.4444447"
@@ -98,7 +98,7 @@
            ry="0.96953708"
            transform="matrix(0.69473365,-0.71926709,0.71926709,0.69473365,0,0)" />
         <rect
-           style="fill:#323232;fill-opacity:1;stroke:none"
+           style="fill:#000000;fill-opacity:1;stroke:none"
            id="rect4039-4"
            width="14.611111"
            height="4.4444447"
@@ -109,7 +109,7 @@
            transform="matrix(0.69473365,-0.71926709,0.71926709,0.69473365,0,0)" />
         <path
            sodipodi:type="star"
-           style="fill:#323232;fill-opacity:1;stroke:none"
+           style="fill:#000000;fill-opacity:1;stroke:none"
            id="path4080"
            sodipodi:sides="3"
            sodipodi:cx="41.5"

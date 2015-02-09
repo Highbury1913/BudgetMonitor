@@ -1,0 +1,27 @@
+
+.budgetlist
+  md-button.md-fab.md-accent(style="position: fixed; right: 20px; bottom:20px;")
+    md-icon(icon="assets/images/plus-black.svg", style="width: 24px; height: 24px; opacity: 0.87")
+
+
+  md-content(style="width: 100%; max-width: 1000px;margin: auto;")
+    md-list
+      md-item(ng-repeat="budget in budgets")
+        md-item-content
+          span(style="width: 10px", hide-sm)
+          .md-tile-left
+            md-icon.no-accent(hide-sm, icon="assets/images/gas.svg", style="width: 56px; height: 56px;")
+            md-icon.no-accent(hide, show-sm, icon="assets/images/gas-small.svg", style="width: 32px; height: 32px;")
+          .md-tile-content
+            h3 {{budget.name}}
+            h4 {{budget.info}}
+            p(hide-sm)
+              span {{budget.latestBudget.interval}}
+              span - {{budget.latestBudget.startdate| date:shortdate}}
+          .md-tile-right
+            h3 0 / {{budget.latestBudget.budget | currency}}
+            //-rs-bar(full={{budget.latestBudget.budget}}, current=0)
+          .md-button.md-fab(style="padding: 16px 0px 16px 16px;", ng-click="showBottomSheet($event, budget)")
+            md-icon.no-accent(icon="assets/images/modify.svg", style="width: 32px; height: 32px; margin-top: -5px;")
+          span(style="width: 10px", hide-sm)
+        md-divider(ng-if="!$last")

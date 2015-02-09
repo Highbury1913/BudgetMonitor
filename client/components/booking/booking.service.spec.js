@@ -11,8 +11,8 @@ describe('Service: booking', function () {
     booking = _booking_;
   }));
 
-  it('should do something', function () {
-    expect(!!booking).toBe(true);
-  });
+  // it('should do something', function () {
+  //   expect(!!booking).toBe(true);
+  // });
 
 });

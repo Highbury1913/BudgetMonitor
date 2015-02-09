@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var BudgetSchema = new Schema({
   name: String,
   info: String,
+  icon: String,
   _owner: {
     type: Schema.Types.ObjectId,
     ref: 'User'

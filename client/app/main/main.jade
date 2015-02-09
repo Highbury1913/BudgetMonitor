@@ -1,4 +1,20 @@
-div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"app/navbar/navbar.html"')
+
+.rs-hero-unit(ng-hide="isLoggedIn()")
+  div(layout="column", layout-fill, layout-align="space-around center")
+    md-toolbar.rs-xtra-tall.md-hue-1
+      .rs-xtra-tall(layout="column", layout-aling="center center")
+        span(flex)
+        div(layout="column", layout-align="space-around center")
+          h3 Spent all your money already?
+        div(layout="row", layout-align="space-around center")
+          span(flex)
+          img(src="assets/images/budgetmonitor.png", style="width: 128px; height: 128px;")
+          div
+            h4 Budget Monitor might help you!
+            h5 Set up budgets and keep track of it.
+          span(flex)
+        span(flex)
 
 
 
