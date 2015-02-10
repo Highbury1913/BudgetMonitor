@@ -2,7 +2,17 @@
 
 angular.module('budgetApp')
   .factory('Budgets', function ($resource, User, Auth, BudgetCommunication, socket) {
-    var budgets = [];
+    var budgets = [],
+      intervals = ['weekly', 'biweekly', 'daily', 'monthly', 'quarterly', 'yearly', 'once'],
+      icons = ['gas', 'household', 'food'],
+      defaultBudget = {
+        name: '',
+        info: '',
+        icon: icons[0],
+        interval: intervals[0],
+        intervaldata: [{startdate: new Date(), budget: 100}],
+        currencySymbol: '€',
+      };
 
     function removeTimeFromDate(date) {
       date.setMilliseconds(0);
@@ -13,8 +23,9 @@ angular.module('budgetApp')
 
     function encodeBudget(budget) {
       var encodedBudget = {
-        name : budget.name,
-        info : budget.info,
+        name: budget.name,
+        info: budget.info,
+        icon: budget.icon,
         interval : budget.interval,
         intervaldata : [],
         _owner : Auth.getCurrentUser()._id,
@@ -44,6 +55,17 @@ angular.module('budgetApp')
     });
 
     return {
+      getIcons: function() {
+        return icons;
+      },
+
+      getSupportedIntervals: function() {
+        return intervals;
+      },
+
+      getDefaultBudget: function() {
+        return angular.copy(defaultBudget);
+      },
 
       getBudgets: function() {
         return budgets;

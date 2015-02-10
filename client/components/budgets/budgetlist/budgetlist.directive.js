@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetApp')
-  .directive('budgetlist', function ($http, Budgets, Auth, $timeout, $mdBottomSheet, sessiondata) {
+  .directive('budgetlist', function ($http, Budgets, Auth, $timeout, $mdBottomSheet, $mdDialog, sessiondata) {
     return {
       templateUrl: 'components/budgets/budgetlist/budgetlist.html',
       scope: {
@@ -9,9 +9,26 @@ angular.module('budgetApp')
       },
       restrict: 'E',
       link: function (scope) {
+        function confirmDelete(ev) {
+
+          var confirm = $mdDialog.confirm()
+            .title('Would you like to delete "' + sessiondata.getCurrentBudget().name + '"?')
+            .content('Please confirm that you want to delete the budget. This action cannot be undone.')
+            .ariaLabel('Delete budget confirmation')
+            .ok('delete it')
+            .cancel('cancel')
+            .targetEvent(ev);
+          $mdDialog.show(confirm).then(function() {
+            Budgets.delete(sessiondata.getCurrentBudget());
+          }, function() {
+
+          });
+        }
+
         scope.alert = '';
         scope.predicate = '-value';
         scope.getCurrentUser = Auth.getCurrentUser;
+
         scope.showBottomSheet = function($event, budget) {
           scope.alert = '';
           sessiondata.setCurrentBudget( budget );
@@ -20,21 +37,17 @@ angular.module('budgetApp')
             templateUrl: '/components/budgets/budgetlist/budgetmenu.html',
             controller: 'BudgetBottomSheetCtrl',
             targetEvent: $event,
-          }).then( function(clickedItem) {
-            scope.alert = clickedItem.name + ' clicked';
+          }).then( function(clickedItem, ev) {
+            switch (clickedItem.name) {
+              case 'delete':
+                confirmDelete(ev);
+                break;
+              default:
+                break;
+            }
           });
-        }
-        // scope.deleteBudget = Modal.confirm.delete( function(budget) {
-        //   Budgets.delete(budget);
-        // });
-        // scope.editBudget = function(budget){
-        //   var dlg = dialogs.create('/components/addBudgetDlg/addBudgetDlg.html','budgetDlgCtrl',budget);
-        //   dlg.result.then(function(data){
-        //     Budgets.update(data);
-        //   });
-        // }; // end launch
-
+        };
       }
-    }
+    };
 
   });

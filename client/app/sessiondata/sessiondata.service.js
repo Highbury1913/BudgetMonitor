@@ -23,5 +23,5 @@ angular.module('budgetApp')
         return currentBooking;
       }
 
-    }
+    };
   });

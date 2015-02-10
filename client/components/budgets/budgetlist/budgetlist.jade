@@ -1,6 +1,7 @@
 
 .budgetlist
-  md-button.md-fab.md-accent(style="position: fixed; right: 20px; bottom:20px;")
+  md-button.md-fab.md-accent(ng-controller="BudgeteditorCtrl", ng-click="showBudgetEditor($event)",
+    style="position: fixed; right: 20px; bottom:20px;")
     md-icon(icon="assets/images/plus-black.svg", style="width: 24px; height: 24px; opacity: 0.87")
 
 
