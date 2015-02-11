@@ -22,6 +22,7 @@
       <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="budgetApp">
     <!--[if lt IE 7]>
@@ -64,7 +65,6 @@
       <script src="bower_components/angular-dialog-service/dist/dialogs-default-translations.min.js"></script>
       <script src="bower_components/angular-animate/angular-animate.js"></script>
       <script src="bower_components/angular-aria/angular-aria.js"></script>
-      <script src="bower_components/hammerjs/hammer.js"></script>
       <script src="bower_components/angular-material/angular-material.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
@@ -82,16 +82,18 @@
           <script src="app/admin/admin.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
-          <script src="components/addBudgetDlg/addBudgetDlg.directive.js"></script>
+          <script src="app/navbar/navbar.controller.js"></script>
+          <script src="app/sessiondata/sessiondata.service.js"></script>
           <script src="components/auth/auth.service.js"></script>
           <script src="components/auth/user.service.js"></script>
           <script src="components/booking/booking.service.js"></script>
-          <script src="components/budgetlist/budgetlist.directive.js"></script>
-          <script src="components/budgets/budgetcommunication.service.js"></script>
-          <script src="components/budgets/budgets.service.js"></script>
-          <script src="components/modal/modal.service.js"></script>
+          <script src="components/budgets/budgeteditor/budgeteditor.controller.js"></script>
+          <script src="components/budgets/budgetlist/budgetbottomsheet.controller.js"></script>
+          <script src="components/budgets/budgetlist/budgetlist.directive.js"></script>
+          <script src="components/budgets/communication/budgetcommunication.service.js"></script>
+          <script src="components/budgets/communication/budgets.service.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
-          <script src="components/navbar/navbar.controller.js"></script>
+          <script src="components/rs-bar/rs-bar.directive.js"></script>
           <script src="components/socket/socket.service.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
