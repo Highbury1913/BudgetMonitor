@@ -1,0 +1,15 @@
+md-input-container
+  label Name
+  input(ng-model="budget.name")
+md-input-container
+  label Description
+  input(ng-model="budget.info")
+md-input-container
+  label Interval
+  input(ng-model="budget.interval")
+md-input-container
+  label Start date
+  input(type="date", ng-model="budget.startdate")
+md-input-container
+  label Amount
+  input(ng-model="budget.budget", ng-currency, currency-symbol="{{budget.currencySymbol}}")

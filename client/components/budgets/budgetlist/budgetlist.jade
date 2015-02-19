@@ -2,7 +2,7 @@
 .budgetlist
   md-button.md-fab.md-accent(ng-controller="BudgeteditorCtrl", ng-click="showBudgetEditor($event)",
     style="position: fixed; right: 20px; bottom:20px;")
-    md-icon(icon="assets/images/plus-black.svg", style="width: 24px; height: 24px; opacity: 0.87")
+    md-icon(md-svg-src="assets/images/plus-black.svg", style="width: 24px; height: 24px; opacity: 0.87")
 
 
   md-content(style="width: 100%; max-width: 1000px;margin: auto;")
@@ -10,9 +10,9 @@
       md-item(ng-repeat="budget in budgets")
         md-item-content
           span(style="width: 10px", hide-sm)
-          .md-tile-left
-            md-icon.no-accent(hide-sm, icon="assets/images/gas.svg", style="width: 56px; height: 56px;")
-            md-icon.no-accent(hide, show-sm, icon="assets/images/gas-small.svg", style="width: 32px; height: 32px;")
+          .md-tile-left(style="padding-right: 4px;")
+            md-icon.no-accent.s64(hide-sm, md-svg-src="assets/images/gas.svg")
+            md-icon.no-accent.s32(hide, show-sm, md-svg-src="assets/images/gas.svg")
           .md-tile-content
             h3 {{budget.name}}
             h4 {{budget.info}}
@@ -23,6 +23,6 @@
             h3 0 / {{budget.latestBudget.budget | currency}}
             //-rs-bar(full={{budget.latestBudget.budget}}, current=0)
           .md-button(style="padding: 16px 0px 16px 16px;", ng-click="showBottomSheet($event, budget)")
-            md-icon.no-accent(icon="assets/images/modify.svg", style="width: 32px; height: 32px; margin-top: -5px;")
+            md-icon.no-accent.s32(md-svg-src="assets/images/modify.svg")
           span(style="width: 10px", hide-sm)
         md-divider(ng-if="!$last")

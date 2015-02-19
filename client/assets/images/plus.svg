@@ -13,8 +13,9 @@
    height="24"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="plus-black.svg">
+   inkscape:version="0.91 r"
+   sodipodi:docname="plus.svg"
+   viewbox="0 0 24 24">
   <defs
      id="defs4">
     <linearGradient
@@ -36,9 +37,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="15"
-     inkscape:cx="-14.93815"
-     inkscape:cy="4.0962886"
+     inkscape:zoom="67.941177"
+     inkscape:cx="3.1585914"
+     inkscape:cy="13.454051"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -63,7 +64,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -73,9 +74,10 @@
      id="layer1"
      transform="translate(0,-1028.3622)">
     <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77499998000000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.54117649999999995;stroke-dasharray:none"
-       d="M 12.0625 2.03125 C 11.2315 2.03125 10.5625 2.70025 10.5625 3.53125 L 10.5625 10.28125 L 3.5625 10.28125 C 2.7315 10.28125 2.0625 10.95025 2.0625 11.78125 C 2.0625 12.61225 2.7315 13.28125 3.5625 13.28125 L 10.5625 13.28125 L 10.5625 20.53125 C 10.5625 21.36225 11.2315 22.03125 12.0625 22.03125 C 12.8935 22.03125 13.5625 21.36225 13.5625 20.53125 L 13.5625 13.28125 L 20.5625 13.28125 C 21.3935 13.28125 22.0625 12.61225 22.0625 11.78125 C 22.0625 10.95025 21.3935 10.28125 20.5625 10.28125 L 13.5625 10.28125 L 13.5625 3.53125 C 13.5625 2.70025 12.8935 2.03125 12.0625 2.03125 z "
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77499998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.54117647"
+       d="m 12.0625,2.03125 c -0.831,0 -1.5,0.669 -1.5,1.5 l 0,6.75 -7,0 c -0.831,0 -1.5,0.669 -1.5,1.5 0,0.831 0.669,1.5 1.5,1.5 l 7,0 0,7.25 c 0,0.831 0.669,1.5 1.5,1.5 0.831,0 1.5,-0.669 1.5,-1.5 l 0,-7.25 7,0 c 0.831,0 1.5,-0.669 1.5,-1.5 0,-0.831 -0.669,-1.5 -1.5,-1.5 l -7,0 0,-6.75 c 0,-0.831 -0.669,-1.5 -1.5,-1.5 z"
        id="rect5867"
-       transform="translate(0,1028.3622)" />
+       transform="translate(0,1028.3622)"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

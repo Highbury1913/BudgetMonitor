@@ -14,8 +14,9 @@
    height="32"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="edit.svg">
+   inkscape:version="0.91 r"
+   sodipodi:docname="edit.svg"
+   viewbox="0 0 32 32">
   <defs
      id="defs4">
     <linearGradient
@@ -48,7 +49,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="18"
-     inkscape:cx="13.664164"
+     inkscape:cx="-0.058058222"
      inkscape:cy="4.0962886"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -66,7 +67,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -103,7 +104,7 @@
          inkscape:transform-center-y="-0.26116877"
          inkscape:transform-center-x="-0.28681075"
          transform="matrix(0.25999189,-0.20758728,0.2076799,0.26005959,1.3108336,1043.1107)"
-         d="M 45.833333,19 C 45.11582,19.565313 40.842378,17.610338 39.994046,17.271611 39.145714,16.932883 34.701013,15.406818 34.570194,14.502777 34.439375,13.598736 38.269154,10.875313 38.986667,10.31 39.704179,9.744687 43.248141,6.6584957 44.096473,6.9972234 44.944805,7.3359512 45.388468,12.014348 45.519288,12.918389 45.650107,13.82243 46.550846,18.434687 45.833333,19 z"
+         d="M 45.833333,19 C 45.11582,19.565313 40.842378,17.610338 39.994046,17.271611 39.145714,16.932883 34.701013,15.406818 34.570194,14.502777 34.439375,13.598736 38.269154,10.875313 38.986667,10.31 39.704179,9.744687 43.248141,6.6584957 44.096473,6.9972234 44.944805,7.3359512 45.388468,12.014348 45.519288,12.918389 45.650107,13.82243 46.550846,18.434687 45.833333,19 Z"
          inkscape:randomized="0"
          inkscape:rounded="0.15"
          inkscape:flatsided="false"

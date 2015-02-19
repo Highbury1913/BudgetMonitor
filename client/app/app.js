@@ -7,7 +7,8 @@ angular.module('budgetApp', [
   'ngMessages',
   'btford.socket-io',
   'ui.router',
-  'ngMaterial'
+  'ngMaterial',
+  'ng-currency'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $mdThemingProvider) {
     $urlRouterProvider
