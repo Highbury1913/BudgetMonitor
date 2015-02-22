@@ -38,6 +38,24 @@ angular.module('budgetApp')
       return encodedBudget;
     }
 
+    function getBudget( editableBudget ) {
+      if ( editableBudget._id ) {
+        for ( var idx in budgets ) {
+          if (budgets[idx]._id === editableBudget._id)
+          {
+            return budgets[idx];
+          }
+        }
+      }
+      return angular.copy(defaultBudget);
+    }
+
+    function cropDate( date ) {
+      var d = new Date(date);
+      removeTimeFromDate(d);
+      return d;
+    }
+
     function getBudgets( callback ) {
       var cb = callback || angular.noop;
       return BudgetCommunication.index(
@@ -55,6 +73,41 @@ angular.module('budgetApp')
     });
 
     return {
+      transformToEditableBudget: function( budget ) {
+        var editableBudget = {};
+        if (budget._id) {
+          editableBudget._id = budget._id;
+        }
+        editableBudget.name = budget.name;
+        editableBudget.info = budget.info;
+        editableBudget.icon = budget.icon;
+        editableBudget.interval = budget.interval;
+        editableBudget.currencySymbol = budget.currencySymbol;
+        editableBudget.startdate = new Date(budget.latestBudget.startdate);
+        editableBudget.budget = budget.latestBudget.budget;
+
+        return editableBudget;
+      },
+
+      transformFromEditableBudget: function( editableBudget ) {
+        var originalBudget = getBudget( editableBudget );
+        var newDate = cropDate( editableBudget.startdate );
+        var originalDate = cropDate( originalBudget.latestBudget.startdate);
+        if (newDate !== originalDate) {
+          originalBudget.intervaldata.push({startdate: newDate, budget: editableBudget.budget});
+        } else {
+          originalBudget.intervaldata[originalBudget.intervaldata.length-1].budget = editableBudget.budget;
+        }
+
+        originalBudget.name = editableBudget.name;
+        originalBudget.info = editableBudget.info;
+        originalBudget.icon = editableBudget.icon;
+        originalBudget.interval = editableBudget.interval;
+        originalBudget.currencySymbol = editableBudget.currencySymbol;
+
+        return originalBudget;
+      },
+
       getIcons: function() {
         return icons;
       },
@@ -84,9 +137,8 @@ angular.module('budgetApp')
       },
       update: function(budget, callback) {
         var cb = callback || angular.noop;
-        var budgetEncoded = encodeBudget(budget);
 
-        return BudgetCommunication.save(budgetEncoded,
+        return BudgetCommunication.update(budget,
           function(data) {
             return cb(data);
           },

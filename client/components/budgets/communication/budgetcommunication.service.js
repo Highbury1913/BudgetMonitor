@@ -17,6 +17,10 @@ angular.module('budgetApp')
       save: {
         method: 'POST',
         params: {}
+      },
+      update: {
+        method: 'PUT',
+        params: {}
       }
       // get: {
       //   method: 'GET',
