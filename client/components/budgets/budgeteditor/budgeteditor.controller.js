@@ -1,6 +1,17 @@
 'use strict';
 
-function BudgetDialogCtrl($scope, $mdDialog) {
+function BudgetCreationDialogCtrl($scope, $mdDialog, Budgets) {
+  var defaultbudget = Budgets.getDefaultBudget();
+  $scope.action='Create budget';
+  $scope.budget = {
+    name: defaultbudget.name,
+    info: defaultbudget.info,
+    interval: defaultbudget.interval,
+    icon: defaultbudget.icon,
+    startdate: defaultbudget.intervaldata[0].startdate,
+    budget: defaultbudget.intervaldata[0].budget,
+    currencySymbol: defaultbudget.currencySymbol
+  };
   $scope.hide = function() {
     $mdDialog.hide();
   };
@@ -12,37 +23,75 @@ function BudgetDialogCtrl($scope, $mdDialog) {
   };
 }
 
+function BudgetEditingDialogCtrl($scope, $mdDialog, sessiondata, $mdBottomSheet, Budgets) {
+  $mdBottomSheet.hide();
+  var currentBudget = sessiondata.getCurrentBudget();
+  $scope.action='Save';
+  $scope.budget = Budgets.transformToEditableBudget(currentBudget);
+
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(editedBudget) {
+    $mdDialog.hide(Budgets.transformFromEditableBudget(editedBudget));
+  };
+}
+
 angular.module('budgetApp')
-  .controller('BudgeteditorCtrl', function($scope, $mdDialog, Budgets) {
-    //$scope.budget = { budget: "200", startdate: new Date(), interval: "Weekly" };
-    var defaultbudget = Budgets.getDefaultBudget();
-    $scope.budget = {
-      name: defaultbudget.name,
-      info: defaultbudget.info,
-      interval: defaultbudget.interval,
-      icon: defaultbudget.icon,
-      startdate: defaultbudget.intervaldata[0].startdate,
-      budget: defaultbudget.intervaldata[0].budget,
-      currencySymbol: defaultbudget.currencySymbol
+  .controller('BudgetEditorCtrl', function($scope, $mdDialog, Budgets, sessiondata, $mdBottomSheet) {
+    $scope.action = '';
+    $scope.budget = {};
+    $scope.currentBudget = sessiondata.getCurrentBudget();
+
+    function createBudget(budget) {
+      Budgets.create(budget);
     }
+
+    function updateBudget(budget) {
+      Budgets.update(budget);
+    }
+
+    $scope.confirmDelete = function(ev) {
+      $mdBottomSheet.hide();
+
+      var confirm = $mdDialog.confirm()
+        .title('Would you like to delete "' + sessiondata.getCurrentBudget().name + '"?')
+        .content('Please confirm that you want to delete the budget. This action cannot be undone.')
+        .ariaLabel('Delete budget confirmation')
+        .ok('delete it')
+        .cancel('cancel')
+        .targetEvent(ev);
+      $mdDialog.show(confirm).then(function() {
+        Budgets.delete(sessiondata.getCurrentBudget());
+      }, function() {
+
+      });
+    };
+
+
     $scope.showBudgetEditor = function(event, style) {
       if (style === 'new') {
-        $mdDialog.show(
-          $mdDialog.alert()
-            .title('This is an alert title')
-            .content('You can specify some description text in here.')
-            .ariaLabel('Password notification')
-            .ok('Got it!')
-            .targetEvent(event)
-        );
-      } else {
         $mdDialog.show({
-          controller: BudgetDialogCtrl,
+          controller: BudgetCreationDialogCtrl,
           templateUrl: 'components/budgets/budgeteditor/budgeteditor.html',
           targetEvent: event,
         })
         .then(function(budget) {
-          console.log(budget);
+          createBudget(budget);
+        }, function() {
+          console.log('canceled');
+        });
+      } else {
+        $mdDialog.show({
+          controller: BudgetEditingDialogCtrl,
+          templateUrl: 'components/budgets/budgeteditor/budgeteditor.html',
+          targetEvent: event,
+        })
+        .then(function(budget) {
+          updateBudget(budget);
         }, function() {
           console.log('canceled');
         });

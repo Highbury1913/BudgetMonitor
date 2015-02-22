@@ -1,11 +1,9 @@
-md-dialog(aria-label="Budget definition", ng-controller="BudgeteditorCtrl")
-  md-toolbar
-    .md-toolbar-tools New budget
+md-dialog(aria-label="Budget definition")
   md-content.md-padding(hide-sm, style="font-size: 1.2em;")
     div(ng-include='"components/budgets/budgeteditor/budgetform.html"')
   md-content.md-padding(hide, show-sm, style="font-size: 0.8em;")
     div(ng-include='"components/budgets/budgeteditor/budgetform.html"')
   md-content.md-padding(layout="row", layout-align="center center", style="overflow: hidden;")
     span(flex)
-    md-button.md-primary(ng-click="")
-      span Create budget
+    md-button.md-primary(ng-click="answer(budget)")
+      span {{action}}
