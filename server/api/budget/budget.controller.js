@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Budget = require('./budget.model');
+var mongoose = require('mongoose');
 
 // Get list of budgets
 exports.owned = function (req, res) {
@@ -48,28 +49,34 @@ exports.create = function (req, res) {
 
 // Updates an existing budget in the DB.
 exports.update = function (req, res) {
-  if (req.body._id) {
-    delete req.body._id;
-  }
-  Budget.findById(req.params.id, function (err, budget) {
+  console.log('I am in.');
+  // if (req.body._id) {
+  //   delete req.body._id;
+  // }
+  Budget.findById(new mongoose.Types.ObjectId(req.body._id), function (err, budget) {
     if (err) {
       return handleError(res, err);
     }
     if (!budget) {
+      console.log('I cannot find the budget.');
       return res.send(404);
     }
     var updated = budget;
-    if (req.body.hasOwnProperty('budget')) {
-      updated.intervaldata.push(req.body);
-      updated.save(function (err) {
-        if (err) {
-          return handleError(res, err);
-        }
-        return res.json(200, updated);
-      });
-    } else {
-      return res.json(200, updated);
+    updated.name = req.body.name;
+    updated.info = req.body.info;
+    updated.icon = req.body.icon;
+    updated.interval = req.body.interval;
+    updated.intervaldata = [];
+    for (var idx in req.body.intervaldata)
+    {
+      updated.intervaldata.push(req.body.intervaldata[idx])
     }
+    updated.save(function (err) {
+      if (err) {
+        return handleError(res, err);
+      }
+      return res.json(200, updated);
+    });
   });
 };
 
