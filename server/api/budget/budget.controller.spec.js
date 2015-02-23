@@ -30,7 +30,7 @@ describe('/api/budgets', function() {
     // get a user
     Budget.find({}, '', function (err, budgets) {
       budget1 = budgets[0];
-      budget2 = budgets[2];
+      budget2 = budgets[1];
       done();
     });
   })
@@ -87,6 +87,7 @@ describe('/api/budgets', function() {
     it('should respond with JSON object on request', function(done) {
       request(app)
         .put('/api/budgets/'+budget1._id)
+        .send(budget1)
         .expect(200)
         .expect('Content-Type', /json/)
         .end(function(err, res) {
@@ -98,7 +99,18 @@ describe('/api/budgets', function() {
         });
     });
 
-    it('should add a new budget to the interval array', function(done) {
+    it('should refuse to update an unknown budget', function(done) {
+      request(app)
+        .put('/api/budgets/'+budget2._id)
+        .send(budget2)
+        .expect(404)
+        .end(function(err, res) {
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('should update a budget', function(done) {
       var budget_copy = JSON.parse(JSON.stringify(budget1));
       budget_copy = { startdate: new Date("2014-01-03"), budget: 6543.21};
       request(app)
