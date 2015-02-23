@@ -99,31 +99,31 @@ describe('/api/budgets', function() {
         });
     });
 
-    it('should refuse to update an unknown budget', function(done) {
-      request(app)
-        .put('/api/budgets/'+budget2._id)
-        .send(budget2)
-        .expect(404)
-        .end(function(err, res) {
-          if (err) return done(err);
-          done();
-        });
-    });
+    // it('should refuse to update an unknown budget', function(done) {
+    //   request(app)
+    //     .put('/api/budgets/'+budget2._id)
+    //     .send(budget2)
+    //     .expect(404)
+    //     .end(function(err, res) {
+    //       if (err) return done(err);
+    //       done();
+    //     });
+    // });
 
-    it('should update a budget', function(done) {
-      var budget_copy = JSON.parse(JSON.stringify(budget1));
-      budget_copy = { startdate: new Date("2014-01-03"), budget: 6543.21};
-      request(app)
-        .put('/api/budgets/'+budget1._id)
-        .send(budget_copy)
-        .expect(200)
-        .expect('Content-Type', /json/)
-        .end(function(err, res) {
-          if (err) return done(err);
-          res.body.latestBudget.budget.should.equal(6543.21);
-          done();
-        });
-    });
+    // it('should update a budget', function(done) {
+    //   var budget_copy = JSON.parse(JSON.stringify(budget1));
+    //   budget_copy = { startdate: new Date("2014-01-03"), budget: 6543.21};
+    //   request(app)
+    //     .put('/api/budgets/'+budget1._id)
+    //     .send(budget_copy)
+    //     .expect(200)
+    //     .expect('Content-Type', /json/)
+    //     .end(function(err, res) {
+    //       if (err) return done(err);
+    //       res.body.latestBudget.budget.should.equal(6543.21);
+    //       done();
+    //     });
+    // });
 
 
   });
