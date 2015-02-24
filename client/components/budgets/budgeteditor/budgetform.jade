@@ -5,8 +5,12 @@ md-input-container
   label Description
   input(ng-model="budget.info")
 md-input-container
-  label Interval
-  input(ng-model="budget.interval")
+  //- label Interval
+  //- input(ng-model="budget.interval")
+  md-select(ng-model="budget.interval", placeholder="Interval")
+    md-option(ng-value="opt", ng-repeat="opt in intervals") {{ opt }}
+    //- md-option(ng-value="opt", ng-repeat="opt in intervals")
+    //-   md-icon.s32(md-svg-src="/assets/images/gas.svg")
 md-input-container
   label Icon
   input(ng-model="budget.icon")

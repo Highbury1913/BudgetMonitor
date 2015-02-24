@@ -3,7 +3,7 @@
 angular.module('budgetApp')
   .factory('Budgets', function ($resource, User, Auth, BudgetCommunication, socket) {
     var budgets = [],
-      intervals = ['weekly', 'biweekly', 'daily', 'monthly', 'quarterly', 'yearly', 'once'],
+      intervals = ['once', 'daily', 'weekly', 'biweekly', 'monthly', 'quarterly', 'yearly'],
       icons = ['gas', 'household', 'food'],
       defaultBudget = {
         name: '',
@@ -112,7 +112,7 @@ angular.module('budgetApp')
         return icons;
       },
 
-      getSupportedIntervals: function() {
+      getIntervals: function() {
         return intervals;
       },
 

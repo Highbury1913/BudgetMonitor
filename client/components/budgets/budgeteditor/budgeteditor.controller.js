@@ -26,6 +26,7 @@ function BudgetCreationDialogCtrl($scope, $mdDialog, Budgets) {
 function BudgetEditingDialogCtrl($scope, $mdDialog, sessiondata, $mdBottomSheet, Budgets) {
   $mdBottomSheet.hide();
   var currentBudget = sessiondata.getCurrentBudget();
+  $scope.intervals = Budgets.getIntervals();
   $scope.action='Save';
   $scope.budget = Budgets.transformToEditableBudget(currentBudget);
 
