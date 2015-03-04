@@ -15,14 +15,11 @@ md-content(flex)
             span(style="padding:15px")
               md-button.md-warn.md-raised(href='', ng-click='loginOauth("google")', style="padding:5px")
                 |  Log in with Google+
-            span(style="padding:15px")
-              md-button.md-primary.md-raised(href='', ng-click='loginOauth("facebook")')
-                |  Log in with Facebook
           md-content(layout="row", layout-align="center center")
             span
               | - OR -
           md-content.md-padding(layout="column")
-            form(name="loginForm", ng-submit="login(loginForm)", novalidate="")
+            form(name="loginForm", ng-submit="login(loginForm)")
               md-input-container
                 label Email
                 input(required, type="email", name="email", ng-model="user.email")

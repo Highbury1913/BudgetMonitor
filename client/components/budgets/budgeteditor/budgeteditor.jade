@@ -1,7 +1,36 @@
 md-dialog(aria-label="Budget definition", style="width: 900px; max-width: 85%; flex: none;")
-  md-content.md-padding
-    div(ng-include='"components/budgets/budgeteditor/budgetform.html"')
-  md-content.md-padding(layout="row", layout-align="center center", style="overflow: hidden;")
-    span(flex)
-    md-button.md-primary(ng-click="answer(budget)")
-      span {{action}}
+  form(name="budgetEditorForm", ng-submit="answer(budget)")
+    md-content.md-padding
+      div(layout, layout-sm="column")
+        md-input-container(flex)
+          label Name
+          input(required, type="text", name="name", ng-model="budget.name")
+          div(ng-messages="budgetEditorForm.name.$error")
+            div(ng-message="required")
+              | Please enter a short name for the budget.
+        md-input-container
+          label Icon
+          input(ng-model="budget.icon")
+      md-input-container
+        label Description
+        input(required, type="text", name="info", ng-model="budget.info")
+        div(ng-messages="budgetEditorForm.info.$error")
+          div(ng-message="required")
+            | Please enter a short description for the budget.
+      div(layout, layout-sm="column")
+        md-input-container(flex)
+          label Amount
+          input(required, ng-currency, name="budget",
+            currency-symbol="{{budget.currencySymbol}}", ng-model="budget.budget")
+          div(ng-messages="budgetEditorForm.budget.$error")
+            div(ng-message="required")
+              | Please enter the budget.
+        md-input-container(flex)
+          label Start date
+          input(type="date", ng-model="budget.startdate")
+        md-select(ng-model="budget.interval", placeholder="Interval", flex)
+          md-option(ng-value="opt", ng-repeat="opt in intervals") {{ opt }}
+    md-content.md-padding(layout="row", layout-align="center center", style="overflow: hidden;")
+      span(flex)
+      md-button.md-primary(type="submit")
+        span {{action}}

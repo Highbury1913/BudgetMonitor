@@ -15,14 +15,11 @@ md-content(flex)
             span(style="padding:15px")
               md-button.md-warn.md-raised(href='', ng-click='loginOauth("google")', style="padding:5px")
                 |  Connect with Google+
-            span(style="padding:15px")
-              md-button.md-primary.md-raised(href='', ng-click='loginOauth("facebook")')
-                |  Connect with Facebook
           md-content(layout="row", layout-align="center center")
             span
               | - OR -
           md-content.md-padding(layout="column")
-            form(name="signUpForm", ng-submit="register(signUpForm)", novalidate="")
+            form(name="signUpForm", ng-submit="register(signUpForm)")
               md-input-container
                 label Name
                 input(required, name="name", ng-model="user.name")
