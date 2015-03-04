@@ -1,18 +1,28 @@
-form
+form(name="budgetEditorForm", novalidate="")
   div(layout, layout-sm="column")
     md-input-container(flex)
       label Name
-      input(ng-model="budget.name")
+      input(required, type="text", name="name", ng-model="budget.name")
+      div(ng-messages="budgetEditorForm.name.$error")
+        div(ng-message="required")
+          | Please enter a short name for the budget.
     md-input-container
       label Icon
       input(ng-model="budget.icon")
   md-input-container
     label Description
-    input(ng-model="budget.info")
+    input(required, type="text", name="info", ng-model="budget.info")
+    div(ng-messages="budgetEditorForm.info.$error")
+      div(ng-message="required")
+        | Please enter a short description for the budget.
   div(layout, layout-sm="column")
     md-input-container(flex)
       label Amount
-      input(ng-model="budget.budget", ng-currency, currency-symbol="{{budget.currencySymbol}}")
+      input(required, ng-currency, name="budget",
+        currency-symbol="{{budget.currencySymbol}}", ng-model="budget.budget")
+      div(ng-messages="budgetEditorForm.budget.$error")
+        div(ng-message="required")
+          | Please enter the budget.
     md-input-container(flex)
       label Start date
       input(type="date", ng-model="budget.startdate")
