@@ -1,7 +1,5 @@
-md-dialog(aria-label="Budget definition", style="max-width:85%;")
-  md-content.md-padding(hide-sm, style="font-size: 1.2em;")
-    div(ng-include='"components/budgets/budgeteditor/budgetform.html"')
-  md-content.md-padding(hide, show-sm, style="font-size: 0.8em;")
+md-dialog(aria-label="Budget definition", style="width: 900px; max-width: 85%; flex: none;")
+  md-content.md-padding
     div(ng-include='"components/budgets/budgeteditor/budgetform.html"')
   md-content.md-padding(layout="row", layout-align="center center", style="overflow: hidden;")
     span(flex)

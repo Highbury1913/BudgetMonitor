@@ -1,20 +1,20 @@
-md-input-container
-  label Name
-  input(ng-model="budget.name")
-md-input-container
-  label Description
-  input(ng-model="budget.info")
-md-input-container
-  md-select(ng-model="budget.interval", placeholder="Interval")
-    md-option(ng-value="opt", ng-repeat="opt in intervals") {{ opt }}
-    //- md-option(ng-value="opt", ng-repeat="opt in intervals")
-    //-   md-icon.s32(md-svg-src="/assets/images/gas.svg")
-md-input-container
-  label Icon
-  input(ng-model="budget.icon")
-md-input-container
-  label Start date
-  input(type="date", ng-model="budget.startdate")
-md-input-container
-  label Amount
-  input(ng-model="budget.budget", ng-currency, currency-symbol="{{budget.currencySymbol}}")
+form
+  div(layout, layout-sm="column")
+    md-input-container(flex)
+      label Name
+      input(ng-model="budget.name")
+    md-input-container
+      label Icon
+      input(ng-model="budget.icon")
+  md-input-container
+    label Description
+    input(ng-model="budget.info")
+  div(layout, layout-sm="column")
+    md-input-container(flex)
+      label Amount
+      input(ng-model="budget.budget", ng-currency, currency-symbol="{{budget.currencySymbol}}")
+    md-input-container(flex)
+      label Start date
+      input(type="date", ng-model="budget.startdate")
+    md-select(ng-model="budget.interval", placeholder="Interval", flex)
+      md-option(ng-value="opt", ng-repeat="opt in intervals") {{ opt }}

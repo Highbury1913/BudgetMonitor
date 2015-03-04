@@ -3,6 +3,7 @@
 function BudgetCreationDialogCtrl($scope, $mdDialog, Budgets) {
   var defaultbudget = Budgets.getDefaultBudget();
   $scope.action='Create budget';
+  $scope.intervals = Budgets.getIntervals();
   $scope.budget = {
     name: defaultbudget.name,
     info: defaultbudget.info,
