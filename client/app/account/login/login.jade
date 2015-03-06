@@ -22,12 +22,14 @@ md-content(flex)
             form(name="loginForm", ng-submit="login(loginForm)")
               md-input-container
                 label Email
-                input(required, type="email", name="email", ng-model="user.email")
+                input(required, type="email", name="email", ng-model="user.email", mongoose-error='')
                 div(ng-messages="loginForm.email.$error")
                   div(ng-message="required")
                     | Please enter your email.
                   div(ng-message="email")
                     | The email address is not valid.
+                  div(ng-message="mongoose")
+                    | {{ errors.email }}
               md-input-container
                 label Password
                 input(type="password", required, name="password", ng-model="user.password", mongoose-error='')
