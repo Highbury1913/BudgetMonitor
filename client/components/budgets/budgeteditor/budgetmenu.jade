@@ -4,12 +4,12 @@ md-bottom-sheet.md-list.md-has-header
     md-item
       md-button(aria-label="edit", ng-click="showBudgetEditor($event, 'edit')",
         layout-fill, layout="row", layout-align="space-around center")
-        md-icon.s32(icon="/assets/images/edit.svg")
+        md-icon.s32(md-svg-src="/assets/images/edit.svg")
         span(style="min-width: 200px; text-align: left;") &nbsp;Edit
         span(flex)
     md-item
       md-button(aria-label="delete", ng-click="confirmDelete($event)",
         layout-fill, layout="row", layout-align="space-around center")
-        md-icon.s32(icon="/assets/images/delete.svg")
+        md-icon.s32(md-svg-src="/assets/images/delete.svg")
         span(style="min-width: 200px; text-align: left;") &nbsp;Delete
         span(flex)
