@@ -18,14 +18,14 @@ angular.module('budgetApp')
           $location.path('/');
         })
         .catch( function(err) {
-            if (err.message.indexOf("email") > -1) {
-              form['email'].$setValidity('mongoose', false);
-              $scope.errors['email'] = err.message;
+            if (err.message.indexOf('email') > -1) {
+              form.email.$setValidity('mongoose', false);
+              $scope.errors.email = err.message;
             }
-            else if (err.message.indexOf("password") > -1) {
-              form['password'].$setValidity('mongoose', false);
-              $scope.errors['password'] = err.message;
-            };
+            else if (err.message.indexOf('password') > -1) {
+              form.password.$setValidity('mongoose', false);
+              $scope.errors.password = err.message;
+            }
         });
       }
     };
