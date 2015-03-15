@@ -17,15 +17,6 @@
   align-items: stretch;
 }
 
-md-icon {
-  opacity: .87;
-  margin-top: 0px;
-
-  &.no-accent {
-    opacity: .66;
-  }
-}
-
 md-dialog {
   flex: 1;
   max-height: 85%;
@@ -69,6 +60,18 @@ md-dialog {
   height: 128px;
 }
 
+.pad-left {
+  padding-left: 0.5em;
+}
+
+.pad-right {
+  padding-right: 0.5em;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
 a {
   text-decoration: none;
 }
@@ -78,6 +81,6 @@ a {
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'main/main.scss';
+@import 'navbar/navbar.scss';
 @import 'budgets/budgetlist/budgetlist.scss';
-@import 'rs-bar/rs-bar.scss';
 // endinjector
