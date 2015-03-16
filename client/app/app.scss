@@ -72,6 +72,21 @@ md-dialog {
   text-transform: uppercase;
 }
 
+.icon-button {
+  display: block;
+
+  md-icon
+  {
+    display: inline-block;
+  }
+
+  .text
+  {
+    @extend .pad-left;
+    display: inline;
+  }
+}
+
 a {
   text-decoration: none;
 }

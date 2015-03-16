@@ -2,14 +2,10 @@ md-bottom-sheet.md-list.md-has-header
   h3 "{{currentBudget.name}}" actions
   md-list
     md-item
-      md-button(aria-label="edit", ng-click="showBudgetEditor($event, 'edit')",
-        layout-fill, layout="row", layout-align="space-around center")
+      md-button.icon-button(aria-label="edit", ng-click="showBudgetEditor($event, 'edit')")
         md-icon.s32(md-svg-src="/assets/images/edit.svg")
-        span(style="min-width: 200px; text-align: left;") &nbsp;Edit
-        span(flex)
+        span.text Edit
     md-item
-      md-button(aria-label="delete", ng-click="confirmDelete($event)",
-        layout-fill, layout="row", layout-align="space-around center")
+      md-button.icon-button(aria-label="delete", ng-click="confirmDelete($event)")
         md-icon.s32(md-svg-src="/assets/images/delete.svg")
-        span(style="min-width: 200px; text-align: left;") &nbsp;Delete
-        span(flex)
+        span.text Delete
