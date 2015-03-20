@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: MainCtrl', function() {
 
   // load the controller's module
   beforeEach(module('budgetApp'));
   beforeEach(module('socketMock'));
 
   var MainCtrl,
-      scope;
-      //$httpBackend;
+    scope;
+  //$httpBackend;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope) {
     // $httpBackend = _$httpBackend_;
     // $httpBackend.expectGET('/api/things')
     //   .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);

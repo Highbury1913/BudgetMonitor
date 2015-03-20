@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: budgetlist', function () {
+describe('Directive: budgetlist', function() {
 
   // load the directive's module and view
   beforeEach(module('budgetApp'));
@@ -8,7 +8,7 @@ describe('Directive: budgetlist', function () {
 
   var element, scope;
 
-  beforeEach(inject(function ($rootScope) {
+  beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();
   }));
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetApp')
-  .controller('MainCtrl', function ($scope, $http, socket, Auth, Budgets) {
+  .controller('MainCtrl', function($scope, $http, socket, Auth, Budgets) {
     $scope.budgets = Budgets.getBudgets();
     $scope.opened = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
@@ -17,12 +17,12 @@ angular.module('budgetApp')
       value: ''
     };
 
-    $scope.$watch(function () {
-       return Budgets.getBudgets();
-     },
+    $scope.$watch(function() {
+        return Budgets.getBudgets();
+      },
       function(newVal) {
         $scope.budgets = newVal;
-    }, true);
+      }, true);
 
     $scope.open = function($event) {
       $event.preventDefault();
@@ -31,7 +31,7 @@ angular.module('budgetApp')
       $scope.opened = true;
     };
 
-    $scope.$on('$destroy', function () {
+    $scope.$on('$destroy', function() {
       socket.unsyncUpdates('budget');
     });
   });

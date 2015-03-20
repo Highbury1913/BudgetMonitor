@@ -2,7 +2,7 @@
 
 function BudgetCreationDialogCtrl($scope, $mdDialog, Budgets) {
   var defaultbudget = Budgets.getDefaultBudget();
-  $scope.action='Create budget';
+  $scope.action = 'Create budget';
   $scope.intervals = Budgets.getIntervals();
   $scope.budget = {
     name: defaultbudget.name,
@@ -28,7 +28,7 @@ function BudgetEditingDialogCtrl($scope, $mdDialog, sessiondata, $mdBottomSheet,
   $mdBottomSheet.hide();
   var currentBudget = sessiondata.getCurrentBudget();
   $scope.intervals = Budgets.getIntervals();
-  $scope.action='Save';
+  $scope.action = 'Save';
   $scope.budget = Budgets.transformToEditableBudget(currentBudget);
 
   $scope.hide = function() {
@@ -77,26 +77,26 @@ angular.module('budgetApp')
     $scope.showBudgetEditor = function(event, style) {
       if (style === 'new') {
         $mdDialog.show({
-          controller: BudgetCreationDialogCtrl,
-          templateUrl: 'components/budgets/budgeteditor/budgeteditor.html',
-          targetEvent: event,
-        })
-        .then(function(budget) {
-          createBudget(budget);
-        }, function() {
-          console.log('canceled');
-        });
+            controller: BudgetCreationDialogCtrl,
+            templateUrl: 'components/budgets/budgeteditor/budgeteditor.html',
+            targetEvent: event,
+          })
+          .then(function(budget) {
+            createBudget(budget);
+          }, function() {
+            console.log('canceled');
+          });
       } else {
         $mdDialog.show({
-          controller: BudgetEditingDialogCtrl,
-          templateUrl: 'components/budgets/budgeteditor/budgeteditor.html',
-          targetEvent: event,
-        })
-        .then(function(budget) {
-          updateBudget(budget);
-        }, function() {
-          console.log('canceled');
-        });
+            controller: BudgetEditingDialogCtrl,
+            templateUrl: 'components/budgets/budgeteditor/budgeteditor.html',
+            targetEvent: event,
+          })
+          .then(function(budget) {
+            updateBudget(budget);
+          }, function() {
+            console.log('canceled');
+          });
       }
     };
   });

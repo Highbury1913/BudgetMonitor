@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Service: booking', function () {
+describe('Service: booking', function() {
 
   // load the service's module
   beforeEach(module('budgetApp'));
 
   // instantiate service
   var booking;
-  beforeEach(inject(function (_booking_) {
+  beforeEach(inject(function(_booking_) {
     booking = _booking_;
   }));
 

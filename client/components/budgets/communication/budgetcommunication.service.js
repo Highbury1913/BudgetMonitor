@@ -1,16 +1,15 @@
 'use strict';
 
 angular.module('budgetApp')
-  .factory('BudgetCommunication', function ($resource, Auth) {
+  .factory('BudgetCommunication', function($resource, Auth) {
     return $resource('/api/budgets/:path/:id/:controller', {
       id: '@_id'
-    },
-    {
+    }, {
       index: {
         method: 'GET',
         params: {
-          path:'access',
-          id:Auth.getCurrentUser()._id
+          path: 'access',
+          id: Auth.getCurrentUser()._id
         },
         isArray: true
       },

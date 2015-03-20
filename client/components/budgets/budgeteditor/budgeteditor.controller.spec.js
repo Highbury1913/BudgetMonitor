@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: BudgeteditorCtrl', function () {
+describe('Controller: BudgeteditorCtrl', function() {
 
   // load the controller's module
   beforeEach(module('budgetApp'));
@@ -8,7 +8,7 @@ describe('Controller: BudgeteditorCtrl', function () {
   var BudgeteditorCtrl, scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
     BudgeteditorCtrl = $controller('BudgeteditorCtrl', {
       $scope: scope

@@ -3,7 +3,7 @@
 angular.module('budgetApp')
   .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
     var currentUser = {};
-    if($cookieStore.get('token')) {
+    if ($cookieStore.get('token')) {
       currentUser = User.get();
     }
 
@@ -72,17 +72,17 @@ angular.module('budgetApp')
         //   }.bind(this)).$promise;
         var deferred = $q.defer();
         User.save(user,
-          function (data) {
+          function(data) {
             $cookieStore.put('token', data.token);
-            currentUser = User.get(function () {
+            currentUser = User.get(function() {
               deferred.resolve(data);
               return cb(currentUser);
             });
           },
-          function (err) {
+          function(err) {
             this.logout();
-            return cb(err);
             deferred.reject(err);
+            return cb(err);
           });
         return deferred.promise;
       },
@@ -98,7 +98,9 @@ angular.module('budgetApp')
       changePassword: function(oldPassword, newPassword, callback) {
         var cb = callback || angular.noop;
 
-        return User.changePassword({ id: currentUser._id }, {
+        return User.changePassword({
+          id: currentUser._id
+        }, {
           oldPassword: oldPassword,
           newPassword: newPassword
         }, function(user) {
@@ -130,13 +132,13 @@ angular.module('budgetApp')
        * Waits for currentUser to resolve before checking if user is logged in
        */
       isLoggedInAsync: function(cb) {
-        if(currentUser.hasOwnProperty('$promise')) {
+        if (currentUser.hasOwnProperty('$promise')) {
           currentUser.$promise.then(function() {
             cb(true);
           }).catch(function() {
             cb(false);
           });
-        } else if(currentUser.hasOwnProperty('role')) {
+        } else if (currentUser.hasOwnProperty('role')) {
           cb(true);
         } else {
           cb(false);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetApp')
-  .factory('Budgets', function ($resource, User, Auth, BudgetCommunication, socket) {
+  .factory('Budgets', function($resource, User, Auth, BudgetCommunication, socket) {
     var budgets = [],
       intervals = ['once', 'daily', 'weekly', 'biweekly', 'monthly', 'quarterly', 'yearly'],
       icons = ['gas', 'household', 'food'],
@@ -10,7 +10,10 @@ angular.module('budgetApp')
         info: '',
         icon: icons[0],
         interval: intervals[0],
-        intervaldata: [{startdate: new Date(), budget: 100}],
+        intervaldata: [{
+          startdate: new Date(),
+          budget: 100
+        }],
         currencySymbol: '€',
       };
 
@@ -26,23 +29,27 @@ angular.module('budgetApp')
         name: budget.name,
         info: budget.info,
         icon: budget.icon,
-        interval : budget.interval,
-        intervaldata : [],
-        _owner : Auth.getCurrentUser()._id,
-        access : [],
-        currencySymbol : '€',
+        interval: budget.interval,
+        intervaldata: [],
+        _owner: Auth.getCurrentUser()._id,
+        access: [],
+        currencySymbol: '€',
       };
       removeTimeFromDate(budget.startdate);
-      encodedBudget.intervaldata.push({startdate: budget.startdate, budget: budget.budget});
-      encodedBudget.access.push({_userid: Auth.getCurrentUser()._id});
+      encodedBudget.intervaldata.push({
+        startdate: budget.startdate,
+        budget: budget.budget
+      });
+      encodedBudget.access.push({
+        _userid: Auth.getCurrentUser()._id
+      });
       return encodedBudget;
     }
 
-    function getBudget( editableBudget ) {
-      if ( editableBudget._id ) {
-        for ( var idx in budgets ) {
-          if (budgets[idx]._id === editableBudget._id)
-          {
+    function getBudget(editableBudget) {
+      if (editableBudget._id) {
+        for (var idx in budgets) {
+          if (budgets[idx]._id === editableBudget._id) {
             return budgets[idx];
           }
         }
@@ -50,21 +57,21 @@ angular.module('budgetApp')
       return angular.copy(defaultBudget);
     }
 
-    function cropDate( date ) {
+    function cropDate(date) {
       var d = new Date(date);
       removeTimeFromDate(d);
       return d;
     }
 
-    function getBudgets( callback ) {
+    function getBudgets(callback) {
       var cb = callback || angular.noop;
       return BudgetCommunication.index(
-          function(data) {
-            return cb(data);
-          },
-          function(err) {
-            return cb(err);
-          }.bind(this)).$promise;
+        function(data) {
+          return cb(data);
+        },
+        function(err) {
+          return cb(err);
+        }.bind(this)).$promise;
     }
 
     getBudgets().then(function(data) {
@@ -73,7 +80,7 @@ angular.module('budgetApp')
     });
 
     return {
-      transformToEditableBudget: function( budget ) {
+      transformToEditableBudget: function(budget) {
         var editableBudget = {};
         if (budget._id) {
           editableBudget._id = budget._id;
@@ -89,14 +96,17 @@ angular.module('budgetApp')
         return editableBudget;
       },
 
-      transformFromEditableBudget: function( editableBudget ) {
-        var originalBudget = getBudget( editableBudget );
-        var newDate = cropDate( editableBudget.startdate );
-        var originalDate = cropDate( originalBudget.latestBudget.startdate);
+      transformFromEditableBudget: function(editableBudget) {
+        var originalBudget = getBudget(editableBudget);
+        var newDate = cropDate(editableBudget.startdate);
+        var originalDate = cropDate(originalBudget.latestBudget.startdate);
         if (newDate !== originalDate) {
-          originalBudget.intervaldata.push({startdate: newDate, budget: editableBudget.budget});
+          originalBudget.intervaldata.push({
+            startdate: newDate,
+            budget: editableBudget.budget
+          });
         } else {
-          originalBudget.intervaldata[originalBudget.intervaldata.length-1].budget = editableBudget.budget;
+          originalBudget.intervaldata[originalBudget.intervaldata.length - 1].budget = editableBudget.budget;
         }
 
         originalBudget.name = editableBudget.name;
