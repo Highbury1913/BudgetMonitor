@@ -59,6 +59,7 @@
     "grunt-build-control": "DaftMonk/grunt-build-control",
     "grunt-mocha-test": "~0.10.2",
     "grunt-contrib-sass": "^0.7.3",
+    "grunt-jsbeautifier": "*",
     "jit-grunt": "^0.5.0",
     "time-grunt": "~0.3.1",
     "grunt-express-server": "~0.4.17",

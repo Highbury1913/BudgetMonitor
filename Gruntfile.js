@@ -158,6 +158,32 @@ module.exports = function (grunt) {
       }
     },
 
+    jsbeautifier: {
+      default: {
+        src: [
+          '*.{js,json}',
+          '<%= yeoman.client %>/{app,components}/**/*.js'
+        ],
+        options: {
+          js: {
+            indentSize: 2
+          }
+        }
+      },
+      verify: {
+        src: [
+          '*.{js,json}',
+          '<%= yeoman.client %>/{app,components}/**/*.js'
+        ],
+        options: {
+          js: {
+            indentSize: 2
+          },
+          mode: 'VERIFY_ONLY'
+        }
+      }
+    },
+
     // Empties folders to start fresh
     clean: {
       dist: {
