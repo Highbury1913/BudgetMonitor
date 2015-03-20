@@ -32,5 +32,7 @@ md-dialog(aria-label="Budget definition", style="width: 900px; max-width: 85%; f
           md-option(ng-value="opt", ng-repeat="opt in intervals") {{ opt }}
     md-content.md-padding(layout="row", layout-align="center center", style="overflow: hidden;")
       span(flex)
+      md-button(ng-click="cancel()")
+        span Cancel
       md-button.md-primary(type="submit")
         span {{action}}
