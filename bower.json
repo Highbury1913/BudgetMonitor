@@ -14,7 +14,7 @@
     "lodash": "~2.4.1",
     "angular-socket-io": "~0.6.0",
     "angular-ui-router": "~0.2.10",
-    "angular-material": ">=0.8.*",
+    "angular-material": "#master",
     "ng-currency": ">=0.8.2"
   },
   "devDependencies": {
