@@ -3,14 +3,14 @@
  */
 
 .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
 
 .rs-row {
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
@@ -27,34 +27,42 @@ md-dialog {
   width: 16px;
   height: 16px;
 }
+
 .s20 {
   width: 20px;
   height: 20px;
 }
+
 .s24 {
   width: 24px;
   height: 24px;
 }
+
 .s32 {
   width: 32px;
   height: 32px;
 }
+
 .s40 {
   width: 40px;
   height: 40px;
 }
+
 .s48 {
   width: 48px;
   height: 48px;
 }
+
 .s64 {
   width: 64px;
   height: 64px;
 }
+
 .s96 {
   width: 96px;
   height: 96px;
 }
+
 .s128 {
   width: 128px;
   height: 128px;
@@ -75,13 +83,11 @@ md-dialog {
 .icon-button {
   display: block;
 
-  md-icon
-  {
+  md-icon {
     display: inline-block;
   }
 
-  .text
-  {
+  .text {
     @extend .pad-left;
     display: inline;
   }

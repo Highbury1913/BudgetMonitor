@@ -2,39 +2,46 @@
   span.glyphicon {
     padding: 0 7px;
   }
-  .show-on-hover a{
+
+  .show-on-hover a {
     opacity: .3;
   }
-  td:hover .show-on-hover a:hover{
+
+  td:hover .show-on-hover a:hover {
     opacity: 1;
   }
 
   .icons {
     width: 6em;
   }
+
   .remove {
     color: #c00;
   }
-
   text-overflow: ellipsis;
 
   .md-tile-right h3 {
     margin: 0 0 3px 0;
     font-weight: 400;
-    font-size: 1.1em; }
+    font-size: 1.1em;
+  }
+
   .md-tile-right h4 {
     margin: 0 0 3px 0;
     font-weight: 400;
-    font-size: 0.9em; }
+    font-size: 0.9em;
+  }
+
   .md-tile-right p {
     margin: 0 0 3px 0;
-    font-size: 0.75em; }
-
+    font-size: 0.75em;
+  }
 }
 
 .md-inline-list-icon-label {
-    padding-left: 20px;
-    display: inline-block;
-    margin-top: -5px;
-    height: 24px;
-    vertical-align: middle; }
+  padding-left: 20px;
+  display: inline-block;
+  margin-top: -5px;
+  height: 24px;
+  vertical-align: middle;
+}

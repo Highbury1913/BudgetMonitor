@@ -1,42 +1,42 @@
 $hero-unit-size: 300px;
 
 .hero-unit {
-    position: relative;
-    padding: 30px 15px;
-    color: #F5F5F5;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    background: #4393B9;
+  position: relative;
+  padding: 30px 15px;
+  color: #F5F5F5;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background: #4393B9;
 }
 
 .rs-hero-unit {
-    position: absolute;
-    height: $hero-unit-size;
-    margin-top: 50px;
-    width: 100%;
+  position: absolute;
+  height: $hero-unit-size;
+  margin-top: 50px;
+  width: 100%;
 
-    h3 {
-        text-transform: uppercase;
-    }
+  h3 {
+    text-transform: uppercase;
+  }
 
-    md-icon {
-        opacity: 1;
-    }
+  md-icon {
+    opacity: 1;
+  }
 }
 
 .footer {
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 70px;
-    border-top: 1px solid #E5E5E5;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 70px;
+  border-top: 1px solid #E5E5E5;
 }
 
 a:hover,
 .md-button:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .rs-xtra-tall {
-    min-height: $hero-unit-size;
-    max-height: $hero-unit-size;
+  min-height: $hero-unit-size;
+  max-height: $hero-unit-size;
 }
