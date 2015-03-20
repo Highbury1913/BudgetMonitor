@@ -162,6 +162,28 @@ module.exports = function(grunt) {
       }
     },
 
+    sassFormat: {
+      options: {
+        indentChar: ' ',
+        indentStep: 2,
+        indent: true,
+        blankLine: {
+          property: true,
+          close: true
+        },
+        whiteSpace: {
+          selector: true,
+          property: true
+        },
+        order: true,
+        lang: 'en',
+        debug: false
+      },
+      files: {
+        src: ['<%= yeoman.client %>/{app,components}/**/*.scss']
+      }
+    },
+
     jsbeautifier: {
       default: {
         src: [
