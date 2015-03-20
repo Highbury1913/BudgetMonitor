@@ -21,7 +21,7 @@ describe('Service: sessiondata', function() {
 
   it('should return the current budget after setting one', function() {
     var budget1 = {
-      name: "1"
+      name: '1'
     };
     sessiondata.setCurrentBudget(budget1);
     expect(sessiondata.getCurrentBudget()).toBe(budget1);
@@ -29,10 +29,10 @@ describe('Service: sessiondata', function() {
 
   it('should return the latest budget after setting it twice', function() {
     var budget1 = {
-      name: "1"
+      name: '1'
     };
     var budget2 = {
-      name: "2"
+      name: '2'
     };
     sessiondata.setCurrentBudget(budget1);
     sessiondata.setCurrentBudget(budget2);
@@ -41,7 +41,7 @@ describe('Service: sessiondata', function() {
 
   it('should return the current booking after setting one', function() {
     var booking1 = {
-      name: "1"
+      name: '1'
     };
     sessiondata.setCurrentBooking(booking1);
     expect(sessiondata.getCurrentBooking()).toBe(booking1);
@@ -49,10 +49,10 @@ describe('Service: sessiondata', function() {
 
   it('should return the latest budget after setting it twice', function() {
     var booking1 = {
-      name: "1"
+      name: '1'
     };
     var booking2 = {
-      name: "2"
+      name: '2'
     };
     sessiondata.setCurrentBooking(booking1);
     sessiondata.setCurrentBooking(booking2);

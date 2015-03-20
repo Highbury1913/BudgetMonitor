@@ -4,23 +4,16 @@ function BudgetCreationDialogCtrl($scope, $mdDialog, Budgets) {
   var defaultbudget = Budgets.getDefaultBudget();
   $scope.action = 'Create budget';
   $scope.intervals = Budgets.getIntervals();
-  $scope.budget = {
-    name: defaultbudget.name,
-    info: defaultbudget.info,
-    interval: defaultbudget.interval,
-    icon: defaultbudget.icon,
-    startdate: defaultbudget.intervaldata[0].startdate,
-    budget: defaultbudget.intervaldata[0].budget,
-    currencySymbol: defaultbudget.currencySymbol
-  };
+  $scope.budget = Budgets.transformToEditableBudget(defaultbudget);
+
   $scope.hide = function() {
     $mdDialog.hide();
   };
   $scope.cancel = function() {
     $mdDialog.cancel();
   };
-  $scope.answer = function(answer) {
-    $mdDialog.hide(answer);
+  $scope.answer = function(budget) {
+    $mdDialog.hide(Budgets.transformFromEditableBudget(budget));
   };
 }
 

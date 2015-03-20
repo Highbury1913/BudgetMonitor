@@ -66,6 +66,7 @@ angular.module('budgetApp')
     function getBudgets(callback) {
       var cb = callback || angular.noop;
       return BudgetCommunication.index(
+         /*jshint validthis:true */
         function(data) {
           return cb(data);
         },
@@ -90,8 +91,8 @@ angular.module('budgetApp')
         editableBudget.icon = budget.icon;
         editableBudget.interval = budget.interval;
         editableBudget.currencySymbol = budget.currencySymbol;
-        editableBudget.startdate = new Date(budget.latestBudget.startdate);
-        editableBudget.budget = budget.latestBudget.budget;
+        editableBudget.startdate = new Date(budget.intervaldata[budget.intervaldata.length-1].startdate);
+        editableBudget.budget = budget.intervaldata[budget.intervaldata.length-1].budget;
 
         return editableBudget;
       },
@@ -133,6 +134,7 @@ angular.module('budgetApp')
       getBudgets: function() {
         return budgets;
       },
+
       create: function(budget, callback) {
         var cb = callback || angular.noop;
         var budgetEncoded = encodeBudget(budget);

@@ -6,7 +6,7 @@ describe('Directive: budgetlist', function() {
   beforeEach(module('budgetApp'));
   beforeEach(module('components/budgetlist/budgetlist.html'));
 
-  var element, scope;
+  var scope;
 
   beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();
